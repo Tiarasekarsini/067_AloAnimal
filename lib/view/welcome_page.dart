@@ -1,5 +1,5 @@
-import 'package:aloanimal/sign_in.dart';
-import 'package:aloanimal/sign_up.dart';
+import 'package:aloanimal/view/sign_in.dart';
+import 'package:aloanimal/view/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

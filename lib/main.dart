@@ -1,4 +1,4 @@
-import 'package:aloanimal/welcome_page.dart';
+import 'package:aloanimal/view/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
