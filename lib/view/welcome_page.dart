@@ -44,13 +44,13 @@ class WelcomePage extends StatelessWidget {
                     ]),
               )),
           Container(
-            padding: const EdgeInsets.only(top: 590, left: 15, right: 15),
+            padding: const EdgeInsets.only(top: 590, left: 40, right: 40),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(230, 252, 87, 158),
                 minimumSize: Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(40)),
                 textStyle: GoogleFonts.lato(
                     fontSize: 18,
                     color: Colors.white,
@@ -72,13 +72,13 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 660, left: 15, right: 15),
+            padding: const EdgeInsets.only(top: 660, left: 40, right: 40),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(230, 252, 87, 158),
                 minimumSize: Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(40)),
                 textStyle: GoogleFonts.lato(
                     fontSize: 18,
                     color: Colors.white,
