@@ -73,7 +73,7 @@ class SignIn extends StatelessWidget {
                   decoration: InputDecoration(
                       hintText: "Enter your email",
                       prefixIcon: const Icon(
-                        Icons.person,
+                        Icons.email,
                         color: Color.fromARGB(230, 252, 87, 158),
                       ),
                       focusedBorder: const OutlineInputBorder(
@@ -85,7 +85,7 @@ class SignIn extends StatelessWidget {
                               color: Colors.white, width: 1.0))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Please enter your name";
+                      return "Please enter your email";
                     }
                     return null;
                   },
