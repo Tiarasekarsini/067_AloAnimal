@@ -34,8 +34,18 @@ class SignIn extends StatelessWidget {
               padding: const EdgeInsets.only(top: 380),
               child: Text("Let's get Started",
                   style: GoogleFonts.lato(
-                    fontSize: 30,
+                    fontSize: 32,
                     color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            Container(
+              alignment: Alignment.topCenter,
+              padding: const EdgeInsets.only(top: 425),
+              child: Text("Sign into your account",
+                  style: GoogleFonts.lato(
+                    fontSize: 18,
+                    color: Colors.grey.shade600,
                     fontWeight: FontWeight.bold,
                   )),
             ),
@@ -47,74 +57,78 @@ class SignIn extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(left: 25),
-              margin: const EdgeInsets.only(top: 440, left: 17, right: 17),
-              alignment: Alignment.centerLeft,
-              child: const Text(
-                'Email',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(230, 252, 87, 158),
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-                padding: const EdgeInsets.only(top: 8),
-                margin: const EdgeInsets.only(top: 450, right: 40, left: 40),
-                child: Column(children: [
-                  TextFormField(
-                    decoration: const InputDecoration(
+                height: 50,
+                margin: const EdgeInsets.only(top: 480, left: 40, right: 40),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          spreadRadius: 7,
+                          blurRadius: 10,
+                          offset: Offset(1, 1),
+                          color: Colors.grey.withOpacity(0.2))
+                    ]),
+                child: TextFormField(
+                  decoration: InputDecoration(
                       hintText: "Enter your email",
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.person,
                         color: Color.fromARGB(230, 252, 87, 158),
                       ),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter your name";
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {},
-                  ),
-                ])),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                              color: Colors.white, width: 1.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your name";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {},
+                )),
             Container(
-              padding: const EdgeInsets.only(left: 25),
-              margin: const EdgeInsets.only(top: 520, left: 17, right: 17),
-              alignment: Alignment.centerLeft,
-              child: const Text(
-                'Password',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(230, 252, 87, 158),
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+                height: 50,
+                margin: const EdgeInsets.only(top: 543, left: 40, right: 40),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          spreadRadius: 7,
+                          blurRadius: 10,
+                          offset: Offset(1, 1),
+                          color: Colors.grey.withOpacity(0.2))
+                    ]),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: Color.fromARGB(230, 252, 87, 158),
+                      ),
+                      suffixIcon: const Icon(Icons.visibility),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                              color: Colors.white, width: 1.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your password";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {},
+                )),
             Container(
-                padding: const EdgeInsets.only(top: 8),
-                margin: const EdgeInsets.only(top: 530, right: 40, left: 40),
-                child: Column(children: [
-                  TextFormField(
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                        hintText: "Enter your password",
-                        prefixIcon: Icon(Icons.lock,
-                            color: Color.fromARGB(230, 252, 87, 158)),
-                        suffixIcon: Icon(Icons.visibility)),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter your password";
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {},
-                  ),
-                ])),
-            Container(
-              padding: const EdgeInsets.only(top: 610, left: 40, right: 40),
+              padding: const EdgeInsets.only(top: 617, left: 40, right: 40),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromARGB(230, 252, 87, 158),
