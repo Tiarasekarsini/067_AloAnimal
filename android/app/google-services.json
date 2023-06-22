@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353443410047",
+    "project_id": "aloanimal-b1519",
+    "storage_bucket": "aloanimal-b1519.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353443410047:android:9af7e60778621935a00f4a",
+        "android_client_info": {
+          "package_name": "com.example.aloanimal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353443410047-0v4pbtpgu94uasp5r3j4sihku5itjk56.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVloNWM4gVHlxoswuAny6dnjY1l-OswoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353443410047-0v4pbtpgu94uasp5r3j4sihku5itjk56.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

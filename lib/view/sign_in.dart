@@ -1,3 +1,4 @@
+import 'package:aloanimal/view/home_page.dart';
 import 'package:aloanimal/view/sign_up.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -141,7 +142,10 @@ class SignIn extends StatelessWidget {
                       letterSpacing: 3.5 / 100,
                       height: 152 / 100),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
+                },
                 child: Text(
                   'Sign In',
                   style: GoogleFonts.lato(
