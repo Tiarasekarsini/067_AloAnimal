@@ -6,7 +6,7 @@ Aplikasi AloAnimal ini adalah aplikasi yang ditujukan untuk pawrents (pemilik an
 
 ## User / Pawrents
 
-![Alt text](screenshot/Flowchart.jpeg)
+![Alt text](screenshot/FlowchartUser.jpeg)
 
 ## Dokter
 
