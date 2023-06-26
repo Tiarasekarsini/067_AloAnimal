@@ -36,4 +36,19 @@ class AnimalController {
     streamController.sink.add(animal.docs);
     return animal.docs;
   }
+
+  Future<void> editAnimal(AnimalModel anmodel) async {
+    var document = animalCollection.doc(anmodel.id);
+
+    final AnimalModel animalModel = AnimalModel(
+        id: anmodel.id,
+        namaK: anmodel.namaK,
+        tanggalLahir: anmodel.tanggalLahir,
+        jeniskelamin: anmodel.jeniskelamin,
+        age: anmodel.age,
+        ras: anmodel.ras,
+        color: anmodel.color);
+
+    await document.update(animalModel.toMap());
+  }
 }

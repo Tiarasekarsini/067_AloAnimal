@@ -1,5 +1,6 @@
 import 'package:aloanimal/controller/animal_controller.dart';
 import 'package:aloanimal/view/animaldata/add_animal.dart';
+import 'package:aloanimal/view/animaldata/edit_animal.dart';
 import 'package:aloanimal/view/home_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,13 @@ class _AnimalDataState extends State<AnimalData> {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const EditAnimal()));
+                                    },
                                     icon: const Icon(
                                         Icons.delete_outline_rounded)),
                                 IconButton(
