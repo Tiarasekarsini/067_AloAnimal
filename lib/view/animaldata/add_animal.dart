@@ -39,6 +39,16 @@ class _AddAnimalState extends State<AddAnimal> {
           child: Stack(
             children: [
               Container(
+                margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
+                alignment: Alignment.center,
+                child: Text(
+                  'Pawrents! \n Please Add your Animal Data',
+                  style: GoogleFonts.lato(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Container(
                   height: 50,
                   margin: const EdgeInsets.only(top: 100, left: 10, right: 10),
                   decoration: BoxDecoration(

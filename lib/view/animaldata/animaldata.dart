@@ -33,7 +33,9 @@ class _AnimalDataState extends State<AnimalData> {
       body: SafeArea(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        const Padding(padding: EdgeInsets.only(top: 5)),
+        const Padding(
+          padding: EdgeInsets.only(top: 5),
+        ),
         Text(
           'Pawrents!\n this is your Animal Data',
           style: GoogleFonts.lato(fontSize: 25, fontWeight: FontWeight.bold),
@@ -80,13 +82,13 @@ class _AnimalDataState extends State<AnimalData> {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.edit),
-                                ),
-                                IconButton(
                                     onPressed: () {},
                                     icon: const Icon(
-                                        Icons.delete_outline_rounded))
+                                        Icons.delete_outline_rounded)),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.navigate_next_rounded),
+                                ),
                               ],
                             )));
                   });
@@ -95,7 +97,6 @@ class _AnimalDataState extends State<AnimalData> {
         ),
       ])),
       floatingActionButton: FloatingActionButton(
-        key: UniqueKey(),
         onPressed: () {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const AddAnimal()));
