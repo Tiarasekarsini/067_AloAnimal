@@ -95,6 +95,14 @@ class _AnimalDataState extends State<AnimalData> {
                                                   id: data[index]['id'],
                                                   kucingAsal: data[index]
                                                       ['namaK'],
+                                                  tanggalAsal: data[index]
+                                                      ['tanggalLahir'],
+                                                  jkAsal: data[index]
+                                                      ['jeniskelamin'],
+                                                  ageAsal: data[index]['age'],
+                                                  rasAsal: data[index]['ras'],
+                                                  colorAsal: data[index]
+                                                      ['color'],
                                                 )));
                                   },
                                   icon: const Icon(Icons.navigate_next_rounded),
