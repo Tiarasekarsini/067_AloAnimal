@@ -83,17 +83,20 @@ class _AnimalDataState extends State<AnimalData> {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 IconButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const EditAnimal()));
-                                    },
+                                    onPressed: () {},
                                     icon: const Icon(
                                         Icons.delete_outline_rounded)),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => EditAnimal(
+                                                  id: data[index]['id'],
+                                                  kucingAsal: data[index]
+                                                      ['namaK'],
+                                                )));
+                                  },
                                   icon: const Icon(Icons.navigate_next_rounded),
                                 ),
                               ],
