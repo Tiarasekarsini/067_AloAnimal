@@ -51,4 +51,15 @@ class AnimalController {
 
     await document.update(animalModel.toMap());
   }
+
+  Future<void> delAnimal(String id) async {
+    var document = animalCollection.doc(id);
+    var DocumentSnapshot = await document.get();
+
+    if (DocumentSnapshot.exists) {
+      await document.delete();
+    } else {
+      throw Exception('Failed to delete data');
+    }
+  }
 }
