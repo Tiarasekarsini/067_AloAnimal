@@ -100,6 +100,39 @@ class _AnimalDataState extends State<AnimalData> {
                                                       style:
                                                           TextButton.styleFrom(
                                                               backgroundColor:
+                                                                  Colors.red),
+                                                      onPressed: () async {
+                                                        Navigator.pop(context);
+                                                        ac
+                                                            .delAnimal(
+                                                                data[index].id)
+                                                            .then((value) {
+                                                          setState(() {
+                                                            ac.getContact();
+                                                          });
+                                                        });
+                                                        var snackBar =
+                                                            const SnackBar(
+                                                                content: Text(
+                                                                    'Successfully Deleted'));
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                                snackBar);
+                                                      },
+                                                      child: Text(
+                                                        'Delete',
+                                                        style: GoogleFonts.lato(
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color:
+                                                                Colors.white),
+                                                      )),
+                                                  TextButton(
+                                                      style:
+                                                          TextButton.styleFrom(
+                                                              backgroundColor:
                                                                   Colors.blue),
                                                       onPressed: () {
                                                         Navigator.of(context)
