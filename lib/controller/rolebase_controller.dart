@@ -31,6 +31,32 @@ class RoleBaseController {
     return null;
   }
 
+  Future<UserModel?> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final UserCredential userCredential = await auth
+          .signInWithEmailAndPassword(email: email, password: password);
+      final User? user = userCredential.user;
+
+      if (user != null) {
+        final DocumentSnapshot snapshot =
+            await userCollection.doc(user.uid).get();
+
+        final UserModel currentUser = UserModel(
+          uid: user.uid,
+          email: user.email ?? '',
+          namaPawrent: snapshot['namaPawrent'] ?? '',
+          role: snapshot['role'] ?? '',
+        );
+
+        return currentUser;
+      }
+    } catch (e) {
+      //
+    }
+    return null;
+  }
+
   UserModel? getCurrentUser() {
     final User? user = auth.currentUser;
     if (user != null) {

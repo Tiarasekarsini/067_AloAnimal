@@ -6,23 +6,25 @@ class UserModel {
   String namaPawrent;
   String email;
   String uid;
+  String? role;
   UserModel({
     required this.namaPawrent,
     required this.email,
     required this.uid,
+    this.role,
   });
 
   UserModel copyWith({
     String? namaPawrent,
     String? email,
-    String? phone,
-    String? password,
     String? uid,
+    String? role,
   }) {
     return UserModel(
       namaPawrent: namaPawrent ?? this.namaPawrent,
       email: email ?? this.email,
       uid: uid ?? this.uid,
+      role: role ?? this.role,
     );
   }
 
@@ -31,6 +33,7 @@ class UserModel {
       'namaPawrent': namaPawrent,
       'email': email,
       'uid': uid,
+      'role': role,
     };
   }
 
@@ -39,6 +42,7 @@ class UserModel {
       namaPawrent: map['namaPawrent'] ?? '',
       email: map['email'] ?? '',
       uid: map['uid'] ?? '',
+      role: map['role'],
     );
   }
 
@@ -49,7 +53,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(namaPawrent: $namaPawrent, email: $email,  uid: $uid)';
+    return 'UserModel(namaPawrent: $namaPawrent, email: $email, uid: $uid, role: $role)';
   }
 
   @override
@@ -59,12 +63,13 @@ class UserModel {
     return other is UserModel &&
         other.namaPawrent == namaPawrent &&
         other.email == email &&
-        other.uid == uid;
+        other.uid == uid &&
+        other.role == role;
   }
 
   @override
   int get hashCode {
-    return namaPawrent.hashCode ^ email.hashCode ^ uid.hashCode;
+    return namaPawrent.hashCode ^ email.hashCode ^ uid.hashCode ^ role.hashCode;
   }
 
   static UserModel? fromFirebaseUser(User user) {}

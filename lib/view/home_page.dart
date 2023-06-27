@@ -19,6 +19,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('Animal Data'),
+          titleTextStyle: GoogleFonts.lato(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+        ),
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(

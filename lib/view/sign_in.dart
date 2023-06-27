@@ -1,5 +1,6 @@
 import 'package:aloanimal/controller/rolebase_controller.dart';
 import 'package:aloanimal/model/user_model.dart';
+import 'package:aloanimal/view/adminPage/admin_page.dart';
 import 'package:aloanimal/view/home_page.dart';
 import 'package:aloanimal/view/sign_up.dart';
 import 'package:flutter/gestures.dart';
@@ -141,7 +142,47 @@ class SignIn extends StatelessWidget {
             Container(
                 padding: const EdgeInsets.only(top: 617, left: 40, right: 40),
                 child: ElevatedButton(
-                    onPressed: () async {},
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        UserModel? loginUser = await rolebaseController
+                            .signInWithEmailAndPassword(email!, password!);
+                        if (loginUser!.role == 'admin') {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return AdminPage();
+                          }));
+                        } else if (loginUser.role != 'admin') {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return HomePage();
+                          }));
+                        } else {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Ups! your login is failed'),
+                                  content: Text('Please check your data again'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                          backgroundColor: Colors.blue),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text(
+                                        'Try Again',
+                                        style: GoogleFonts.lato(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              });
+                        }
+                      }
+                    },
                     child: Text(
                       'Sign In',
                       style: GoogleFonts.lato(
