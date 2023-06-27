@@ -1,3 +1,5 @@
+import 'package:aloanimal/controller/rolebase_controller.dart';
+import 'package:aloanimal/model/user_model.dart';
 import 'package:aloanimal/view/home_page.dart';
 import 'package:aloanimal/view/sign_up.dart';
 import 'package:flutter/gestures.dart';
@@ -5,11 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignIn extends StatelessWidget {
-  const SignIn({super.key});
-
+  SignIn({super.key});
+  final _formKey = GlobalKey<FormState>();
+  final rolebaseController = RoleBaseController();
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    String? email;
+    String? password;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -90,7 +95,9 @@ class SignIn extends StatelessWidget {
                     }
                     return null;
                   },
-                  onSaved: (value) {},
+                  onChanged: (value) {
+                    email = value;
+                  },
                 )),
             Container(
                 height: 50,
@@ -106,6 +113,7 @@ class SignIn extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2))
                     ]),
                 child: TextFormField(
+                  obscureText: true,
                   decoration: InputDecoration(
                       hintText: "Enter your password",
                       prefixIcon: const Icon(
@@ -126,36 +134,33 @@ class SignIn extends StatelessWidget {
                     }
                     return null;
                   },
-                  onSaved: (value) {},
+                  onChanged: (value) {
+                    password = value;
+                  },
                 )),
             Container(
-              padding: const EdgeInsets.only(top: 617, left: 40, right: 40),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(230, 252, 87, 158),
-                  minimumSize: Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40)),
-                  textStyle: GoogleFonts.lato(
-                      fontSize: 18,
-                      color: Colors.white,
-                      letterSpacing: 3.5 / 100,
-                      height: 152 / 100),
-                ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
-                },
-                child: Text(
-                  'Sign In',
-                  style: GoogleFonts.lato(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+                padding: const EdgeInsets.only(top: 617, left: 40, right: 40),
+                child: ElevatedButton(
+                    onPressed: () async {},
+                    child: Text(
+                      'Sign In',
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(230, 252, 87, 158),
+                        minimumSize: Size(double.infinity, 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40)),
+                        textStyle: GoogleFonts.lato(
+                          fontSize: 18,
+                          color: Colors.white,
+                          letterSpacing: 3.5 / 100,
+                          height: 152 / 100,
+                        )))),
             Container(
               margin: const EdgeInsets.only(top: 680),
               alignment: Alignment.center,

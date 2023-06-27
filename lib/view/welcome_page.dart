@@ -58,8 +58,8 @@ class WelcomePage extends StatelessWidget {
                     height: 152 / 100),
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const SignIn()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => SignIn()));
               },
               child: Text(
                 'Sign In',
@@ -86,8 +86,8 @@ class WelcomePage extends StatelessWidget {
                     height: 152 / 100),
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const SignUp()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => SignUp()));
               },
               child: Text(
                 'Sign Up',
