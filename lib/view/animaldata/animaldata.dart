@@ -83,7 +83,40 @@ class _AnimalDataState extends State<AnimalData> {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                                content: Text(
+                                                  'Pawrents!\nare you sure you want to delete this animal data?',
+                                                  style: GoogleFonts.lato(
+                                                      fontSize: 17,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                actions: [
+                                                  TextButton(
+                                                      style:
+                                                          TextButton.styleFrom(
+                                                              backgroundColor:
+                                                                  Colors.blue),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      child: Text(
+                                                        'Cancel',
+                                                        style: GoogleFonts.lato(
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color:
+                                                                Colors.white),
+                                                      )),
+                                                ]);
+                                          });
+                                    },
                                     icon: const Icon(
                                         Icons.delete_outline_rounded)),
                                 IconButton(
