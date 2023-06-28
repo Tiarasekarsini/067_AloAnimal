@@ -181,6 +181,7 @@ class _AnimalDataState extends State<AnimalData> {
         ),
       ])),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromARGB(230, 252, 87, 158),
         onPressed: () {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const AddAnimal()));
