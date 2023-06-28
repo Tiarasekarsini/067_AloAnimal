@@ -252,7 +252,7 @@ class _AddAnimalState extends State<AddAnimal> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(top: 540, left: 10, right: 10),
+                padding: const EdgeInsets.only(top: 520, left: 10, right: 10),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(230, 252, 87, 158),
@@ -297,6 +297,40 @@ class _AddAnimalState extends State<AddAnimal> {
                   ),
                 ),
               ),
+              Container(
+                  padding: const EdgeInsets.only(top: 590, left: 10, right: 10),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(230, 252, 87, 158),
+                      minimumSize: Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40)),
+                      textStyle: GoogleFonts.lato(
+                        fontSize: 18,
+                        color: Colors.white,
+                        letterSpacing: 3.5 / 100,
+                        height: 152 / 100,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const AnimalData())));
+
+                      var snackBar = const SnackBar(
+                          content: Text('cancel to add animal data'));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    },
+                    child: Text(
+                      'Cancel',
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )),
             ],
           ),
         ),
