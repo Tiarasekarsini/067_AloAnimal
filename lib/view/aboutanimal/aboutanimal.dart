@@ -1,6 +1,7 @@
 import 'package:aloanimal/view/aboutanimal/informasi_1.dart';
 import 'package:aloanimal/view/aboutanimal/informasi_2.dart';
 import 'package:aloanimal/view/aboutanimal/informasi_3.dart';
+import 'package:aloanimal/view/aboutanimal/informasi_4.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -206,7 +207,13 @@ class _AboutAnimalState extends State<AboutAnimal> {
                         Align(
                           alignment: Alignment.bottomRight,
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Informasi4()));
+                            },
                             icon: const Icon(Icons.navigate_next_rounded),
                             iconSize: 45,
                           ),
