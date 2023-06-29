@@ -69,6 +69,12 @@ class _EditAnimalState extends State<EditAnimal> {
           title: const Text('Edit Animal Data'),
           titleTextStyle: GoogleFonts.lato(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         body: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
@@ -394,7 +400,7 @@ class _EditAnimalState extends State<EditAnimal> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pop(
                               context,
                               MaterialPageRoute(
                                   builder: ((context) => const AnimalData())));
