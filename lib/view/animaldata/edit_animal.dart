@@ -49,11 +49,16 @@ class _EditAnimalState extends State<EditAnimal> {
     '7 years old',
     '> 7 years old'
   ];
+  List<String> jk = [
+    'Male',
+    'Female',
+  ];
 
   @override
   void initState() {
     super.initState();
     ageBaru = widget.ageAsal;
+    jkBaru = widget.jkAsal;
   }
 
   @override
@@ -166,6 +171,7 @@ class _EditAnimalState extends State<EditAnimal> {
                   ),
                   Container(
                     height: 50,
+                    padding: const EdgeInsets.all(15),
                     margin:
                         const EdgeInsets.only(top: 240, left: 10, right: 10),
                     decoration: BoxDecoration(
@@ -180,33 +186,24 @@ class _EditAnimalState extends State<EditAnimal> {
                         ),
                       ],
                     ),
-                    child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter the gender",
-                          prefixIcon: const Icon(
-                            Icons.favorite,
-                            color: Color.fromARGB(230, 252, 87, 158),
-                          ),
-                          focusedBorder: const OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 1.0),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide(
-                                color: Colors.white, width: 1.0),
-                          ),
-                        ),
-                        onSaved: (value) {
+                    child: DropdownButton(
+                      hint: const Text('Choose your animal gender'),
+                      value: jkBaru,
+                      onChanged: (value) {
+                        setState(() {
                           jkBaru = value;
-                        },
-                        initialValue: widget.jkAsal,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'please enter the gender your animal!';
-                          }
-                          return null;
-                        }),
+                        });
+                      },
+                      underline: const SizedBox(),
+                      isExpanded: true,
+                      items: jk
+                          .map<DropdownMenuItem<String?>>(
+                              (e) => DropdownMenuItem(
+                                    child: Text(e.toString()),
+                                    value: e,
+                                  ))
+                          .toList(),
+                    ),
                   ),
                   Container(
                     height: 50,
@@ -242,20 +239,6 @@ class _EditAnimalState extends State<EditAnimal> {
                                     value: e,
                                   ))
                           .toList(),
-
-                      // child: TextFormField(
-                      //     decoration: InputDecoration(
-                      //       hintText: "Enter the age",
-                      //       focusedBorder: const OutlineInputBorder(
-                      //         borderSide:
-                      //             BorderSide(color: Colors.white, width: 1.0),
-                      //       ),
-                      //       enabledBorder: OutlineInputBorder(
-                      //         borderRadius: BorderRadius.circular(30),
-                      //         borderSide: const BorderSide(
-                      //             color: Colors.white, width: 1.0),
-                      //       ),
-                      //     ),
                     ),
                   ),
                   Container(
