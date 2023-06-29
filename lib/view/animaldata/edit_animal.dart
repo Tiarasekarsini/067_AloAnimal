@@ -20,6 +20,7 @@ class EditAnimal extends StatefulWidget {
   final String? tanggalAsal;
   final String? jkAsal;
   final String? ageAsal;
+
   final String? rasAsal;
   final String? colorAsal;
 
@@ -48,6 +49,12 @@ class _EditAnimalState extends State<EditAnimal> {
     '7 years old',
     '> 7 years old'
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    ageBaru = widget.ageAsal;
+  }
 
   @override
   var formkey = GlobalKey<FormState>();
