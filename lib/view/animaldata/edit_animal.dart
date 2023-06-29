@@ -37,6 +37,18 @@ class _EditAnimalState extends State<EditAnimal> {
   String? rasBaru;
   String? colorBaru;
 
+  List<String> listItem = [
+    '< 1 years old',
+    '1 years old',
+    '2 years old',
+    '3 years old',
+    '4 years old',
+    '5 years old',
+    '6 years old',
+    '7 years old',
+    '> 7 years old'
+  ];
+
   @override
   var formkey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
@@ -191,6 +203,7 @@ class _EditAnimalState extends State<EditAnimal> {
                   ),
                   Container(
                     height: 50,
+                    padding: const EdgeInsets.all(15),
                     margin:
                         const EdgeInsets.only(top: 310, left: 10, right: 10),
                     decoration: BoxDecoration(
@@ -205,29 +218,38 @@ class _EditAnimalState extends State<EditAnimal> {
                         ),
                       ],
                     ),
-                    child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter the age",
-                          focusedBorder: const OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 1.0),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide(
-                                color: Colors.white, width: 1.0),
-                          ),
-                        ),
-                        onSaved: (value) {
+                    child: DropdownButton(
+                      hint: const Text('Choose your animal age'),
+                      value: ageBaru,
+                      onChanged: (value) {
+                        setState(() {
                           ageBaru = value;
-                        },
-                        initialValue: widget.ageAsal,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'please enter the age your animal!';
-                          }
-                          return null;
-                        }),
+                        });
+                      },
+                      underline: const SizedBox(),
+                      isExpanded: true,
+                      items: listItem
+                          .map<DropdownMenuItem<String?>>(
+                              (e) => DropdownMenuItem(
+                                    child: Text(e.toString()),
+                                    value: e,
+                                  ))
+                          .toList(),
+
+                      // child: TextFormField(
+                      //     decoration: InputDecoration(
+                      //       hintText: "Enter the age",
+                      //       focusedBorder: const OutlineInputBorder(
+                      //         borderSide:
+                      //             BorderSide(color: Colors.white, width: 1.0),
+                      //       ),
+                      //       enabledBorder: OutlineInputBorder(
+                      //         borderRadius: BorderRadius.circular(30),
+                      //         borderSide: const BorderSide(
+                      //             color: Colors.white, width: 1.0),
+                      //       ),
+                      //     ),
+                    ),
                   ),
                   Container(
                     height: 50,
