@@ -36,6 +36,10 @@ class _AddAnimalState extends State<AddAnimal> {
     '> 7 years old'
   ];
 
+  List<String> jk = [
+    'Male',
+    'Female',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,6 +132,7 @@ class _AddAnimalState extends State<AddAnimal> {
                 ),
               ),
               Container(
+                padding: const EdgeInsets.all(15),
                 height: 50,
                 margin: const EdgeInsets.only(top: 240, left: 10, right: 10),
                 decoration: BoxDecoration(
@@ -142,25 +147,22 @@ class _AddAnimalState extends State<AddAnimal> {
                     ),
                   ],
                 ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Enter the gender",
-                    prefixIcon: const Icon(
-                      Icons.favorite,
-                      color: Color.fromARGB(230, 252, 87, 158),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide:
-                          const BorderSide(color: Colors.white, width: 1.0),
-                    ),
-                  ),
+                child: DropdownButton(
+                  hint: const Text('Choose your animal gender'),
+                  value: jeniskelamin,
                   onChanged: (value) {
-                    jeniskelamin = value;
+                    setState(() {
+                      jeniskelamin = value;
+                    });
                   },
+                  underline: const SizedBox(),
+                  isExpanded: true,
+                  items: jk
+                      .map<DropdownMenuItem<String?>>((e) => DropdownMenuItem(
+                            child: Text(e.toString()),
+                            value: e,
+                          ))
+                      .toList(),
                 ),
               ),
               Container(
