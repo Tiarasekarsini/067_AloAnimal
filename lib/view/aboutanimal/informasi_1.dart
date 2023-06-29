@@ -7,13 +7,12 @@ class Informasi1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text('Important Things'),
           titleTextStyle: GoogleFonts.lato(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Color.fromARGB(255, 255, 247, 0),
           ),
         ),
         body: SingleChildScrollView(

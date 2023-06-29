@@ -24,6 +24,18 @@ class _AddAnimalState extends State<AddAnimal> {
   String? ras;
   String? color;
 
+  List<String> listItem = [
+    '< 1 years old',
+    '1 years old',
+    '2 years old',
+    '3 years old',
+    '4 years old',
+    '5 years old',
+    '6 years old',
+    '7 years old',
+    '> 7 years old'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -152,6 +164,7 @@ class _AddAnimalState extends State<AddAnimal> {
                 ),
               ),
               Container(
+                padding: const EdgeInsets.all(15),
                 height: 50,
                 margin: const EdgeInsets.only(top: 310, left: 10, right: 10),
                 decoration: BoxDecoration(
@@ -166,21 +179,22 @@ class _AddAnimalState extends State<AddAnimal> {
                     ),
                   ],
                 ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Enter the age",
-                    focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide:
-                          const BorderSide(color: Colors.white, width: 1.0),
-                    ),
-                  ),
+                child: DropdownButton(
+                  hint: const Text('Choose your animal age'),
+                  value: age,
                   onChanged: (value) {
-                    age = value;
+                    setState(() {
+                      age = value;
+                    });
                   },
+                  underline: const SizedBox(),
+                  isExpanded: true,
+                  items: listItem
+                      .map<DropdownMenuItem<String?>>((e) => DropdownMenuItem(
+                            child: Text(e.toString()),
+                            value: e,
+                          ))
+                      .toList(),
                 ),
               ),
               Container(

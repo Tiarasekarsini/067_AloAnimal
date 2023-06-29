@@ -12,7 +12,7 @@ class Informasi3 extends StatelessWidget {
           titleTextStyle: GoogleFonts.lato(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Color.fromARGB(255, 255, 65, 125),
           ),
         ),
         body: SingleChildScrollView(
