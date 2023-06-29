@@ -329,7 +329,7 @@ class _AddAnimalState extends State<AddAnimal> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pop(
                           context,
                           MaterialPageRoute(
                               builder: ((context) => const AnimalData())));

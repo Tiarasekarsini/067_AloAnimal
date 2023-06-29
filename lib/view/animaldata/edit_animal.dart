@@ -30,6 +30,7 @@ class EditAnimal extends StatefulWidget {
 
 class _EditAnimalState extends State<EditAnimal> {
   final animalController = AnimalController();
+  var formkey = GlobalKey<FormState>();
 
   String? kucingBaru;
   String? tanggalBaru;
@@ -62,7 +63,6 @@ class _EditAnimalState extends State<EditAnimal> {
   }
 
   @override
-  var formkey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
