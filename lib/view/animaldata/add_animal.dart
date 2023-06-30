@@ -1,6 +1,7 @@
 import 'package:aloanimal/controller/animal_controller.dart';
 import 'package:aloanimal/model/animal_model.dart';
 import 'package:aloanimal/view/animaldata/animaldata.dart';
+import 'package:aloanimal/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,6 +48,13 @@ class _AddAnimalState extends State<AddAnimal> {
         title: const Text('Add Animal Data'),
         titleTextStyle: GoogleFonts.lato(
             fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          },
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),

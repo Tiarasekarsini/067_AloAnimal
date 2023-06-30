@@ -1,5 +1,6 @@
 import 'package:aloanimal/controller/animal_controller.dart';
 import 'package:aloanimal/view/animaldata/animaldata.dart';
+import 'package:aloanimal/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -72,7 +73,8 @@ class _EditAnimalState extends State<EditAnimal> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
             },
           ),
         ),
