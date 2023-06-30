@@ -1,6 +1,7 @@
 import 'package:aloanimal/controller/diagnosis_controller.dart';
 import 'package:aloanimal/model/diagnosis_model.dart';
 import 'package:aloanimal/view/diagnosis/riwayat_diagnosis.dart';
+import 'package:aloanimal/view/home_page.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -379,6 +380,24 @@ class _DiagnosisState extends State<Diagnosis> {
                       },
                       btnOkColor: Colors.blue,
                     )..show(); // Add .show() to display the AwesomeDialog
+                  } else {
+                    namaPenyakit =
+                        "Mohon maaf, kami tidak bisa memberikan diagnosis berdasarkan gejala yang anda pilih.";
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.WARNING,
+                      animType: AnimType.TOPSLIDE,
+                      showCloseIcon: true,
+                      title: 'Result',
+                      desc: "$namaPenyakit",
+                      btnOkOnPress: () {
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
+                      },
+                      btnOkColor: Colors.blue,
+                    )..show();
                   }
                 },
                 child: Text(
