@@ -1,3 +1,5 @@
+import 'package:aloanimal/controller/diagnosis_controller.dart';
+import 'package:aloanimal/model/diagnosis_model.dart';
 import 'package:aloanimal/view/diagnosis/riwayat_diagnosis.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ class Diagnosis extends StatefulWidget {
 }
 
 class _DiagnosisState extends State<Diagnosis> {
+  var diagnosisController = DiagnosisController();
   String? namaPenyakit;
   List<bool> checkedList = [
     false,
@@ -208,16 +211,165 @@ class _DiagnosisState extends State<Diagnosis> {
                 height: 20,
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(230, 252, 87, 158)),
                 onPressed: () {
-                  if (checkedList[0] && checkedList[1]) {
-                    namaPenyakit = "Demam";
+                  if (checkedList[5] && checkedList[6]) {
+                    namaPenyakit = "CANINE PARVOVIRUS";
+
+                    DiagnosisModel dm =
+                        DiagnosisModel(namaPenyakit: namaPenyakit!);
+                    diagnosisController.addDiagnosis(dm);
                     AwesomeDialog(
                       context: context,
                       dialogType: DialogType.WARNING,
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "Kucing anda terkena penyakit $namaPenyakit",
+                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      btnOkOnPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RiwayatDiagnosis()),
+                        );
+                      },
+                      btnOkColor: Colors.blue,
+                    )..show(); // Add .show() to display the AwesomeDialog
+                  } else if (checkedList[7] &&
+                      checkedList[3] &&
+                      checkedList[4]) {
+                    namaPenyakit = "CANINE DISTEMPER";
+
+                    DiagnosisModel dm =
+                        DiagnosisModel(namaPenyakit: namaPenyakit!);
+                    diagnosisController.addDiagnosis(dm);
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.WARNING,
+                      animType: AnimType.TOPSLIDE,
+                      showCloseIcon: true,
+                      title: 'Result',
+                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      btnOkOnPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RiwayatDiagnosis()),
+                        );
+                      },
+                      btnOkColor: Colors.blue,
+                    )..show(); // Add .show() to display the AwesomeDialog
+                  } else if (checkedList[7] &&
+                      checkedList[6] &&
+                      checkedList[8]) {
+                    namaPenyakit = "CANINE HEPATITIS";
+
+                    DiagnosisModel dm =
+                        DiagnosisModel(namaPenyakit: namaPenyakit!);
+                    diagnosisController.addDiagnosis(dm);
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.WARNING,
+                      animType: AnimType.TOPSLIDE,
+                      showCloseIcon: true,
+                      title: 'Result',
+                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      btnOkOnPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RiwayatDiagnosis()),
+                        );
+                      },
+                      btnOkColor: Colors.blue,
+                    )..show(); // Add .show() to display the AwesomeDialog
+                  } else if (checkedList[2]) {
+                    namaPenyakit = "CANINE CORONAVIRUS";
+
+                    DiagnosisModel dm =
+                        DiagnosisModel(namaPenyakit: namaPenyakit!);
+                    diagnosisController.addDiagnosis(dm);
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.WARNING,
+                      animType: AnimType.TOPSLIDE,
+                      showCloseIcon: true,
+                      title: 'Result',
+                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      btnOkOnPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RiwayatDiagnosis()),
+                        );
+                      },
+                      btnOkColor: Colors.blue,
+                    )..show(); // Add .show() to display the AwesomeDialog
+                  } else if (checkedList[0] &&
+                      checkedList[8] &&
+                      checkedList[9]) {
+                    namaPenyakit = "CANINE LEPTOSPIROSIS";
+
+                    DiagnosisModel dm =
+                        DiagnosisModel(namaPenyakit: namaPenyakit!);
+                    diagnosisController.addDiagnosis(dm);
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.WARNING,
+                      animType: AnimType.TOPSLIDE,
+                      showCloseIcon: true,
+                      title: 'Result',
+                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      btnOkOnPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RiwayatDiagnosis()),
+                        );
+                      },
+                      btnOkColor: Colors.blue,
+                    )..show(); // Add .show() to display the AwesomeDialog
+                  } else if (checkedList[10] &&
+                      checkedList[3] &&
+                      checkedList[4] &&
+                      checkedList[7]) {
+                    namaPenyakit = "FELINE UPPER RESPIRATORY TRACT INFECTION";
+
+                    DiagnosisModel dm =
+                        DiagnosisModel(namaPenyakit: namaPenyakit!);
+                    diagnosisController.addDiagnosis(dm);
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.WARNING,
+                      animType: AnimType.TOPSLIDE,
+                      showCloseIcon: true,
+                      title: 'Result',
+                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      btnOkOnPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RiwayatDiagnosis()),
+                        );
+                      },
+                      btnOkColor: Colors.blue,
+                    )..show(); // Add .show() to display the AwesomeDialog
+                  } else if (checkedList[1] &&
+                      checkedList[6] &&
+                      checkedList[11]) {
+                    namaPenyakit = "FELINE PANLEUKOPENIA";
+
+                    DiagnosisModel dm =
+                        DiagnosisModel(namaPenyakit: namaPenyakit!);
+                    diagnosisController.addDiagnosis(dm);
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.WARNING,
+                      animType: AnimType.TOPSLIDE,
+                      showCloseIcon: true,
+                      title: 'Result',
+                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
                       btnOkOnPress: () {
                         Navigator.push(
                           context,
@@ -229,7 +381,13 @@ class _DiagnosisState extends State<Diagnosis> {
                     )..show(); // Add .show() to display the AwesomeDialog
                   }
                 },
-                child: Text('Cek'),
+                child: Text(
+                  'Cek',
+                  style: GoogleFonts.lato(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
             ],
           ),
