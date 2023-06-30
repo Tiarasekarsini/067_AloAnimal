@@ -1,4 +1,5 @@
 import 'package:aloanimal/controller/diagnosis_controller.dart';
+import 'package:aloanimal/view/adminPage/feedback_admin.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +12,7 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
-  var dc = DiagnosisController();
+  final dc = DiagnosisController();
   String? namaPenyakit;
 
   @override
@@ -87,7 +88,10 @@ class _AdminPageState extends State<AdminPage> {
                           trailing: IconButton(
                             icon: const Icon(Icons.navigate_next_rounded),
                             onPressed: () {
-                              // if (namaPenyakit == 'CANINE PARVOVIRUS') {}
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => FeedbackAdmin())));
                             },
                           ),
                         ),
