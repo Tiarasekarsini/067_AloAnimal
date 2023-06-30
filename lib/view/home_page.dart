@@ -2,6 +2,7 @@ import 'package:aloanimal/controller/rolebase_controller.dart';
 import 'package:aloanimal/view/aboutanimal/aboutanimal.dart';
 import 'package:aloanimal/view/animaldata/animaldata.dart';
 import 'package:aloanimal/view/diagnosis/diagnosis.dart';
+import 'package:aloanimal/view/diagnosis/riwayat_diagnosis.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -247,7 +248,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        // Add your onTap logic here
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RiwayatDiagnosis()));
                       },
                       child: Center(
                         child: Image.asset('assets/images/history.png'),
