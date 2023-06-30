@@ -242,29 +242,6 @@ class _DiagnosisState extends State<Diagnosis> {
                         btnOkColor: Colors.blue,
                         btnOkText: 'Lanjutkan')
                       ..show(); // Add .show() to display the AwesomeDialog
-                  } else if (checkedList[3] && checkedList[4]) {
-                    namaPenyakit = "CANINE DISTEMPER";
-
-                    DiagnosisModel dm =
-                        DiagnosisModel(namaPenyakit: namaPenyakit!);
-                    diagnosisController.addDiagnosis(dm);
-                    AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc:
-                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
-                      btnOkOnPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RiwayatDiagnosis()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show(); // Add .show() to display the AwesomeDialog
                   } else if (checkedList[7] &&
                       checkedList[6] &&
                       checkedList[8]) {

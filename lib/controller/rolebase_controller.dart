@@ -64,4 +64,8 @@ class RoleBaseController {
     }
     return null;
   }
+
+  Future<void> signOut() async {
+    await auth.signOut();
+  }
 }

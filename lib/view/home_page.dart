@@ -15,6 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // final RoleBaseController rbc = RoleBaseController();
+
   final PageController _controller = PageController();
   int _currentPage = 0;
 
@@ -26,15 +28,25 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               Container(
-                alignment: Alignment.centerLeft,
                 margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-                child: Text(
-                  'Hello, Pawrents!',
-                  style: GoogleFonts.lato(
-                    fontSize: 30,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Hello, Pawrents!',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.logout),
+                      onPressed: () {
+                        // rbc.signOut();
+                      },
+                    ),
+                  ],
                 ),
               ),
               Container(
