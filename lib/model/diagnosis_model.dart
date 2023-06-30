@@ -2,10 +2,10 @@ import 'dart:convert';
 
 class DiagnosisModel {
   String? id;
-  final String namaPenyakit;
+  String? namaPenyakit;
   DiagnosisModel({
     this.id,
-    required this.namaPenyakit,
+    this.namaPenyakit,
   });
 
   Map<String, dynamic> toMap() {

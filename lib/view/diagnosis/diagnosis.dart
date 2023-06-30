@@ -16,6 +16,8 @@ class Diagnosis extends StatefulWidget {
 class _DiagnosisState extends State<Diagnosis> {
   var diagnosisController = DiagnosisController();
   String? namaPenyakit;
+  String? tidakTerdiagnosis;
+
   List<bool> checkedList = [
     false,
     false,
@@ -30,6 +32,7 @@ class _DiagnosisState extends State<Diagnosis> {
     false,
     false,
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,24 +225,24 @@ class _DiagnosisState extends State<Diagnosis> {
                         DiagnosisModel(namaPenyakit: namaPenyakit!);
                     diagnosisController.addDiagnosis(dm);
                     AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
-                      btnOkOnPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RiwayatDiagnosis()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show(); // Add .show() to display the AwesomeDialog
-                  } else if (checkedList[7] &&
-                      checkedList[3] &&
-                      checkedList[4]) {
+                        context: context,
+                        dialogType: DialogType.WARNING,
+                        animType: AnimType.TOPSLIDE,
+                        showCloseIcon: true,
+                        title: 'Result',
+                        desc:
+                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
+                        btnOkOnPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RiwayatDiagnosis()),
+                          );
+                        },
+                        btnOkColor: Colors.blue,
+                        btnOkText: 'Lanjutkan')
+                      ..show(); // Add .show() to display the AwesomeDialog
+                  } else if (checkedList[3] && checkedList[4]) {
                     namaPenyakit = "CANINE DISTEMPER";
 
                     DiagnosisModel dm =
@@ -251,7 +254,8 @@ class _DiagnosisState extends State<Diagnosis> {
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      desc:
+                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
                       btnOkOnPress: () {
                         Navigator.push(
                           context,
@@ -275,7 +279,8 @@ class _DiagnosisState extends State<Diagnosis> {
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      desc:
+                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
                       btnOkOnPress: () {
                         Navigator.push(
                           context,
@@ -297,7 +302,8 @@ class _DiagnosisState extends State<Diagnosis> {
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      desc:
+                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
                       btnOkOnPress: () {
                         Navigator.push(
                           context,
@@ -321,7 +327,8 @@ class _DiagnosisState extends State<Diagnosis> {
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      desc:
+                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
                       btnOkOnPress: () {
                         Navigator.push(
                           context,
@@ -346,7 +353,8 @@ class _DiagnosisState extends State<Diagnosis> {
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      desc:
+                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
                       btnOkOnPress: () {
                         Navigator.push(
                           context,
@@ -370,7 +378,8 @@ class _DiagnosisState extends State<Diagnosis> {
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "Kucing anda terkena penyakit\n $namaPenyakit",
+                      desc:
+                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
                       btnOkOnPress: () {
                         Navigator.push(
                           context,
@@ -381,7 +390,7 @@ class _DiagnosisState extends State<Diagnosis> {
                       btnOkColor: Colors.blue,
                     )..show(); // Add .show() to display the AwesomeDialog
                   } else {
-                    namaPenyakit =
+                    tidakTerdiagnosis =
                         "Mohon maaf, kami tidak bisa memberikan diagnosis berdasarkan gejala yang anda pilih.";
                     AwesomeDialog(
                       context: context,
@@ -389,7 +398,7 @@ class _DiagnosisState extends State<Diagnosis> {
                       animType: AnimType.TOPSLIDE,
                       showCloseIcon: true,
                       title: 'Result',
-                      desc: "$namaPenyakit",
+                      desc: "$tidakTerdiagnosis",
                       btnOkOnPress: () {
                         Navigator.pop(
                           context,

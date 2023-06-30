@@ -1,3 +1,4 @@
+import 'package:aloanimal/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +19,13 @@ class _RiwayatDiagnosisState extends State<RiwayatDiagnosis> {
         fontSize: 20,
         fontWeight: FontWeight.bold,
         color: Colors.black,
+      ),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
+        },
       ),
     ));
   }
