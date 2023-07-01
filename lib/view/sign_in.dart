@@ -1,6 +1,7 @@
 import 'package:aloanimal/controller/rolebase_controller.dart';
 import 'package:aloanimal/model/user_model.dart';
 import 'package:aloanimal/view/adminPage/admin_page.dart';
+import 'package:aloanimal/view/adminPage/diagnosis_admin.dart';
 import 'package:aloanimal/view/home_page.dart';
 import 'package:aloanimal/view/sign_up.dart';
 import 'package:flutter/gestures.dart';

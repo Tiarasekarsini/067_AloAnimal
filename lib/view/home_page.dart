@@ -3,6 +3,7 @@ import 'package:aloanimal/view/aboutanimal/aboutanimal.dart';
 import 'package:aloanimal/view/animaldata/animaldata.dart';
 import 'package:aloanimal/view/diagnosis/diagnosis.dart';
 import 'package:aloanimal/view/diagnosis/riwayat_diagnosis.dart';
+import 'package:aloanimal/view/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // final RoleBaseController rbc = RoleBaseController();
+  final RoleBaseController rbc = RoleBaseController();
 
   final PageController _controller = PageController();
   int _currentPage = 0;
@@ -43,7 +44,9 @@ class _HomePageState extends State<HomePage> {
                     IconButton(
                       icon: Icon(Icons.logout),
                       onPressed: () {
-                        // rbc.signOut();
+                        rbc.signOut();
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignIn()));
                       },
                     ),
                   ],

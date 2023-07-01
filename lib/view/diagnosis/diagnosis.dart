@@ -1,5 +1,6 @@
 import 'package:aloanimal/controller/diagnosis_controller.dart';
 import 'package:aloanimal/model/diagnosis_model.dart';
+
 import 'package:aloanimal/view/diagnosis/riwayat_diagnosis.dart';
 import 'package:aloanimal/view/home_page.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -231,7 +232,7 @@ class _DiagnosisState extends State<Diagnosis> {
                         showCloseIcon: true,
                         title: 'Result',
                         desc:
-                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
+                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. ",
                         btnOkOnPress: () {
                           Navigator.push(
                             context,
@@ -251,22 +252,23 @@ class _DiagnosisState extends State<Diagnosis> {
                         DiagnosisModel(namaPenyakit: namaPenyakit!);
                     diagnosisController.addDiagnosis(dm);
                     AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc:
-                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
-                      btnOkOnPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RiwayatDiagnosis()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show(); // Add .show() to display the AwesomeDialog
+                        context: context,
+                        dialogType: DialogType.WARNING,
+                        animType: AnimType.TOPSLIDE,
+                        showCloseIcon: true,
+                        title: 'Result',
+                        desc:
+                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan.",
+                        btnOkOnPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RiwayatDiagnosis()),
+                          );
+                        },
+                        btnOkColor: Colors.blue,
+                        btnOkText: 'Lanjutkan')
+                      ..show(); // Add .show() to display the AwesomeDialog
                   } else if (checkedList[2]) {
                     namaPenyakit = "CANINE CORONAVIRUS";
 
@@ -274,22 +276,23 @@ class _DiagnosisState extends State<Diagnosis> {
                         DiagnosisModel(namaPenyakit: namaPenyakit!);
                     diagnosisController.addDiagnosis(dm);
                     AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc:
-                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
-                      btnOkOnPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RiwayatDiagnosis()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show(); // Add .show() to display the AwesomeDialog
+                        context: context,
+                        dialogType: DialogType.WARNING,
+                        animType: AnimType.TOPSLIDE,
+                        showCloseIcon: true,
+                        title: 'Result',
+                        desc:
+                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. ",
+                        btnOkOnPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RiwayatDiagnosis()),
+                          );
+                        },
+                        btnOkColor: Colors.blue,
+                        btnOkText: 'Lanjutkan')
+                      ..show(); // Add .show() to display the AwesomeDialog
                   } else if (checkedList[0] &&
                       checkedList[8] &&
                       checkedList[9]) {
@@ -299,22 +302,23 @@ class _DiagnosisState extends State<Diagnosis> {
                         DiagnosisModel(namaPenyakit: namaPenyakit!);
                     diagnosisController.addDiagnosis(dm);
                     AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc:
-                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
-                      btnOkOnPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RiwayatDiagnosis()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show(); // Add .show() to display the AwesomeDialog
+                        context: context,
+                        dialogType: DialogType.WARNING,
+                        animType: AnimType.TOPSLIDE,
+                        showCloseIcon: true,
+                        title: 'Result',
+                        desc:
+                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. ",
+                        btnOkOnPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RiwayatDiagnosis()),
+                          );
+                        },
+                        btnOkColor: Colors.blue,
+                        btnOkText: 'Lanjutkan')
+                      ..show(); // Add .show() to display the AwesomeDialog
                   } else if (checkedList[10] &&
                       checkedList[3] &&
                       checkedList[4] &&
@@ -325,22 +329,23 @@ class _DiagnosisState extends State<Diagnosis> {
                         DiagnosisModel(namaPenyakit: namaPenyakit!);
                     diagnosisController.addDiagnosis(dm);
                     AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc:
-                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
-                      btnOkOnPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RiwayatDiagnosis()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show(); // Add .show() to display the AwesomeDialog
+                        context: context,
+                        dialogType: DialogType.WARNING,
+                        animType: AnimType.TOPSLIDE,
+                        showCloseIcon: true,
+                        title: 'Result',
+                        desc:
+                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. ",
+                        btnOkOnPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RiwayatDiagnosis()),
+                          );
+                        },
+                        btnOkColor: Colors.blue,
+                        btnOkText: 'Lanjutkan')
+                      ..show(); // Add .show() to display the AwesomeDialog
                   } else if (checkedList[1] &&
                       checkedList[6] &&
                       checkedList[11]) {
@@ -350,40 +355,42 @@ class _DiagnosisState extends State<Diagnosis> {
                         DiagnosisModel(namaPenyakit: namaPenyakit!);
                     diagnosisController.addDiagnosis(dm);
                     AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc:
-                          "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. \n\n\n Note: Feedback bisa dilihat di Diagnostic History",
-                      btnOkOnPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RiwayatDiagnosis()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show(); // Add .show() to display the AwesomeDialog
+                        context: context,
+                        dialogType: DialogType.WARNING,
+                        animType: AnimType.TOPSLIDE,
+                        showCloseIcon: true,
+                        title: 'Result',
+                        desc:
+                            "Hewan Anda kemungkinan terjangkit virus\n $namaPenyakit Klik 'Lanjukan' untuk melihat feedback dari Dokter Hewan. ",
+                        btnOkOnPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RiwayatDiagnosis()),
+                          );
+                        },
+                        btnOkColor: Colors.blue,
+                        btnOkText: 'Lanjutkan')
+                      ..show(); // Add .show() to display the AwesomeDialog
                   } else {
                     tidakTerdiagnosis =
                         "Mohon maaf, kami tidak bisa memberikan diagnosis berdasarkan gejala yang anda pilih.";
                     AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.WARNING,
-                      animType: AnimType.TOPSLIDE,
-                      showCloseIcon: true,
-                      title: 'Result',
-                      desc: "$tidakTerdiagnosis",
-                      btnOkOnPress: () {
-                        Navigator.pop(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
-                        );
-                      },
-                      btnOkColor: Colors.blue,
-                    )..show();
+                        context: context,
+                        dialogType: DialogType.WARNING,
+                        animType: AnimType.TOPSLIDE,
+                        showCloseIcon: true,
+                        title: 'Result',
+                        desc: "$tidakTerdiagnosis",
+                        btnOkOnPress: () {
+                          Navigator.pop(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        },
+                        btnOkColor: Colors.blue,
+                        btnOkText: 'OK')
+                      ..show();
                   }
                 },
                 child: Text(

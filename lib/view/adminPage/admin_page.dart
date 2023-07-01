@@ -1,7 +1,11 @@
-import 'package:aloanimal/controller/diagnosis_controller.dart';
-import 'package:aloanimal/view/adminPage/feedback_admin.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:aloanimal/controller/rolebase_controller.dart';
+import 'package:aloanimal/view/adminPage/diagnosis_admin.dart';
+import 'package:aloanimal/view/adminPage/feedback1/feedback1.dart';
+
+import 'package:aloanimal/view/sign_in.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdminPage extends StatefulWidget {
@@ -12,96 +16,122 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
-  final dc = DiagnosisController();
-  String? namaPenyakit;
-
-  @override
-  void initState() {
-    dc.getContact();
-    super.initState();
-  }
-
+  final RoleBaseController rbc = RoleBaseController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Column(children: [
-        Container(
-          margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Hello, Veterinarian!',
-                style: GoogleFonts.lato(
-                  fontSize: 25,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+        body: SafeArea(
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Hello, Pawrents!',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              IconButton(
-                icon: Icon(Icons.logout),
-                onPressed: () {
-                  // rbc.signOut();
-                },
-              ),
-            ],
+                IconButton(
+                  icon: Icon(Icons.logout),
+                  onPressed: () {
+                    rbc.signOut();
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignIn()));
+                  },
+                ),
+              ],
+            ),
           ),
-        ),
-        const Divider(
-          color: Color.fromARGB(158, 255, 64, 128),
-          thickness: 1,
-          indent: 27,
-          endIndent: 27,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Expanded(
-          child: StreamBuilder<List<DocumentSnapshot>>(
-            stream: dc.stream,
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              final List<DocumentSnapshot> data = snapshot.data!;
-              return ListView.builder(
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      margin:
-                          const EdgeInsets.only(right: 20, left: 20, top: 20),
-                      elevation: 10,
-                      child: Container(
-                        padding: const EdgeInsets.all(5),
-                        height: 70,
-                        child: ListTile(
-                          title: Text(
-                            data[index]['namaPenyakit'],
-                            style: GoogleFonts.lato(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.navigate_next_rounded),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: ((context) => FeedbackAdmin())));
-                            },
-                          ),
-                        ),
+          const Divider(
+            color: Color.fromARGB(94, 158, 158, 158),
+            thickness: 1,
+            indent: 27,
+            endIndent: 27,
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Container(
+                padding: EdgeInsets.all(15),
+                color: const Color.fromARGB(210, 33, 149, 243),
+                height: 130,
+                width: 340,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Diagnostics Data',
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
-                    );
-                  });
-            },
+                    ),
+                    const SizedBox(height: 5),
+                    Column(children: [
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const DiagnosisAdmin()));
+                          },
+                          icon: const Icon(Icons.navigate_next_rounded),
+                          iconSize: 45,
+                        ),
+                      )
+                    ]),
+                  ],
+                )),
           ),
-        ),
-      ])),
-    );
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Container(
+                padding: EdgeInsets.all(15),
+                color: const Color.fromARGB(212, 233, 30, 98),
+                height: 130,
+                width: 340,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Feedback',
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Column(children: [
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Feedback1()));
+                          },
+                          icon: const Icon(Icons.navigate_next_rounded),
+                          iconSize: 45,
+                        ),
+                      )
+                    ]),
+                  ],
+                )),
+          ),
+        ],
+      ),
+    ));
   }
 }
