@@ -69,6 +69,61 @@ class _RiwayatDiagnosisState extends State<RiwayatDiagnosis> {
               indent: 27,
               endIndent: 27,
             ),
+            Card(
+                margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                child: Container(
+                    padding: const EdgeInsets.all(5),
+                    height: 70,
+                    decoration: BoxDecoration(
+                        color: Colors.pink.shade400,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: ListTile(
+                      title: Text(
+                        'FEEDBACK DOKTER',
+                        style: GoogleFonts.lato(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.lightbulb_outline),
+                        color: Colors.amber.shade500,
+                        iconSize: 40,
+                        onPressed: () {
+                          AwesomeDialog(
+                            context: context,
+                            dialogType: DialogType.WARNING,
+                            animType: AnimType.TOPSLIDE,
+                            showCloseIcon: true,
+                            title: 'Result',
+                            desc:
+                                "Anda ingin melihat feedback dari dokter?\n Klik 'Lanjutkan'. \n\n Note: Tidak semua Penyakit yang terdiagnosis mendapatkan feedback dari Dokter",
+                            btnOkOnPress: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FeedbackList(),
+                                ),
+                              );
+                            },
+                            btnOkColor: Colors.blue,
+                            btnOkText: 'Lanjutkan',
+                          )..show();
+                        },
+                      ),
+                    ))),
+            const SizedBox(
+              height: 20,
+            ),
+            const Divider(
+              color: Color.fromARGB(158, 255, 64, 128),
+              thickness: 1,
+              indent: 27,
+              endIndent: 27,
+            ),
 
             // Menampung data dari controller
             Expanded(
@@ -98,30 +153,6 @@ class _RiwayatDiagnosisState extends State<RiwayatDiagnosis> {
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
                               ),
-                            ),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.navigate_next_rounded),
-                              onPressed: () {
-                                AwesomeDialog(
-                                  context: context,
-                                  dialogType: DialogType.WARNING,
-                                  animType: AnimType.TOPSLIDE,
-                                  showCloseIcon: true,
-                                  title: 'Result',
-                                  desc:
-                                      "Anda ingin melihat feedback dari Dokter hewan? klik 'lihat' untuk melihat feedback",
-                                  btnOkOnPress: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => FeedbackList(),
-                                      ),
-                                    );
-                                  },
-                                  btnOkColor: Colors.blue,
-                                  btnOkText: 'Lanjutkan',
-                                )..show();
-                              },
                             ),
                           ),
                         ),

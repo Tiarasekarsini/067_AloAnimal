@@ -24,6 +24,17 @@ class _FeedbackListState extends State<FeedbackList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          color: Colors.red,
+          iconSize: 40,
+          onPressed: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          },
+        ),
+      ),
       body: SafeArea(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           const Padding(
@@ -71,34 +82,6 @@ class _FeedbackListState extends State<FeedbackList> {
               },
             ),
           ),
-          Column(children: [
-            Container(
-                margin: const EdgeInsets.only(bottom: 300, left: 20, right: 20),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      minimumSize: Size(double.infinity, 50),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40)),
-                      textStyle: GoogleFonts.lato(
-                        fontSize: 18,
-                        color: Colors.white,
-                        letterSpacing: 3.5 / 100,
-                        height: 152 / 100,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    },
-                    child: Text(
-                      'Close',
-                      style: GoogleFonts.lato(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ))),
-          ]),
         ]),
       ),
     );
