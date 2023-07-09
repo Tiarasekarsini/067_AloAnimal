@@ -3,18 +3,15 @@ import 'dart:convert';
 class DiagnosisModel {
   String? id;
   String? namaPenyakit;
-  String? feedback;
   DiagnosisModel({
     this.id,
     this.namaPenyakit,
-    this.feedback,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'namaPenyakit': namaPenyakit,
-      'feedback': feedback,
     };
   }
 
@@ -22,7 +19,6 @@ class DiagnosisModel {
     return DiagnosisModel(
       id: map['id'],
       namaPenyakit: map['namaPenyakit'],
-      feedback: map['feedback'],
     );
   }
 

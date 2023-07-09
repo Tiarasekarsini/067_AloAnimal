@@ -3,6 +3,7 @@ import 'package:aloanimal/view/animaldata/animaldata.dart';
 import 'package:aloanimal/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 import '../../model/animal_model.dart';
 
@@ -31,6 +32,7 @@ class EditAnimal extends StatefulWidget {
 
 class _EditAnimalState extends State<EditAnimal> {
   final animalController = AnimalController();
+
   var formkey = GlobalKey<FormState>();
 
   String? kucingBaru;
@@ -59,6 +61,7 @@ class _EditAnimalState extends State<EditAnimal> {
   @override
   void initState() {
     super.initState();
+    tanggalBaru = widget.tanggalAsal;
     ageBaru = widget.ageAsal;
     jkBaru = widget.jkAsal;
   }
@@ -154,10 +157,25 @@ class _EditAnimalState extends State<EditAnimal> {
                                 color: Colors.white, width: 1.0),
                           ),
                         ),
+                        readOnly: true,
+                        onTap: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2008),
+                              lastDate: DateTime(2050));
+                          if (pickedDate != null) {
+                            String datepicked =
+                                DateFormat('dd-MMMM-yyyy').format(pickedDate);
+                            setState(() {
+                              tanggalBaru = datepicked;
+                            });
+                          }
+                        },
+                        controller: TextEditingController(text: tanggalBaru),
                         onSaved: (value) {
                           tanggalBaru = value;
                         },
-                        initialValue: widget.tanggalAsal,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'please enter the birth date your animal!';

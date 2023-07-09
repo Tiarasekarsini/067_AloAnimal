@@ -5,6 +5,7 @@ import 'package:aloanimal/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class AddAnimal extends StatefulWidget {
   const AddAnimal({super.key});
@@ -15,6 +16,7 @@ class AddAnimal extends StatefulWidget {
 
 class _AddAnimalState extends State<AddAnimal> {
   var animalController = AnimalController();
+  TextEditingController date = TextEditingController();
 
   final formkey = GlobalKey<FormState>();
 
@@ -41,6 +43,13 @@ class _AddAnimalState extends State<AddAnimal> {
     'Male',
     'Female',
   ];
+
+  @override
+  void initState() {
+    date.text = "";
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,6 +122,7 @@ class _AddAnimalState extends State<AddAnimal> {
                   ],
                 ),
                 child: TextFormField(
+                  controller: date,
                   decoration: InputDecoration(
                     hintText: "Enter the animal's birth date",
                     prefixIcon: const Icon(
@@ -128,6 +138,23 @@ class _AddAnimalState extends State<AddAnimal> {
                           const BorderSide(color: Colors.white, width: 1.0),
                     ),
                   ),
+                  readOnly: true,
+                  onTap: () async {
+                    DateTime? pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2008),
+                        lastDate: DateTime(2050));
+                    if (pickedDate != null) {
+                      String datepicked =
+                          DateFormat('dd-MMMM-yyyy').format(pickedDate);
+
+                      setState(() {
+                        date.text = datepicked;
+                        tanggalLahir = datepicked;
+                      });
+                    }
+                  },
                   onChanged: (value) {
                     tanggalLahir = value;
                   },

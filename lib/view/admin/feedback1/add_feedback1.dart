@@ -31,18 +31,6 @@ class _AddFeedback1State extends State<AddFeedback1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Add Feedback'),
-          titleTextStyle: GoogleFonts.lato(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => AdminPage()));
-            },
-          ),
-        ),
         body: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
             child: Form(
@@ -138,7 +126,7 @@ class _AddFeedback1State extends State<AddFeedback1> {
                         const EdgeInsets.only(top: 520, left: 10, right: 10),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(230, 252, 87, 158),
+                        backgroundColor: Colors.green,
                         minimumSize: Size(double.infinity, 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40)),
@@ -168,6 +156,40 @@ class _AddFeedback1State extends State<AddFeedback1> {
                       },
                       child: Text(
                         'Save',
+                        style: GoogleFonts.lato(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding:
+                        const EdgeInsets.only(top: 580, left: 10, right: 10),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                        minimumSize: Size(double.infinity, 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40)),
+                        textStyle: GoogleFonts.lato(
+                          fontSize: 18,
+                          color: Colors.white,
+                          letterSpacing: 3.5 / 100,
+                          height: 152 / 100,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Feedback1()));
+                      },
+                      //print(cm);
+
+                      child: Text(
+                        'Cancel',
                         style: GoogleFonts.lato(
                           fontSize: 20,
                           color: Colors.white,
