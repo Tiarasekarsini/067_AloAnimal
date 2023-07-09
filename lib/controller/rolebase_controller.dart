@@ -10,7 +10,10 @@ class RoleBaseController {
   bool get success => false;
 
   Future<UserModel?> registerWithEmailAndPassword(
-      String email, String namaPawrent, String phone, String password) async {
+    String email,
+    String namaPawrent,
+    String password,
+  ) async {
     try {
       final UserCredential userCredential = await auth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -18,7 +21,11 @@ class RoleBaseController {
 
       if (user != null) {
         final UserModel userBaru = UserModel(
-            namaPawrent: namaPawrent, email: user.email ?? '', uid: user.uid);
+          namaPawrent: namaPawrent,
+          email: user.email ?? '',
+          uid: user.uid,
+          role: 'user',
+        );
 
         //create a document in the users collection with the user's UID as the document id
         await userCollection.doc(userBaru.uid).set(userBaru.toMap());

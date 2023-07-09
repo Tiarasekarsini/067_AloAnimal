@@ -1,7 +1,7 @@
 import 'package:aloanimal/controller/feedback1_controller.dart';
 import 'package:aloanimal/model/feedback1_model.dart';
-import 'package:aloanimal/view/adminPage/admin_page.dart';
-import 'package:aloanimal/view/adminPage/feedback1/feedback1.dart';
+import 'package:aloanimal/view/admin/admin_page.dart';
+import 'package:aloanimal/view/admin/feedback1/feedback1.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

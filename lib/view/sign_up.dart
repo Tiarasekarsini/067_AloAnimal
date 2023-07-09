@@ -143,44 +143,6 @@ class SignUp extends StatelessWidget {
                                 color: Colors.grey.withOpacity(0.2))
                           ]),
                       child: TextFormField(
-                        decoration: InputDecoration(
-                            hintText: "Enter your phone number",
-                            prefixIcon: const Icon(
-                              Icons.phone,
-                              color: Color.fromARGB(230, 252, 87, 158),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.white, width: 1.0)),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                    color: Colors.white, width: 1.0))),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please enter your phone number";
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          phone = value;
-                        },
-                      )),
-                  Container(
-                      height: 50,
-                      margin:
-                          const EdgeInsets.only(top: 455, left: 40, right: 40),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 7,
-                                blurRadius: 10,
-                                offset: Offset(1, 1),
-                                color: Colors.grey.withOpacity(0.2))
-                          ]),
-                      child: TextFormField(
                         controller: _passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -211,7 +173,7 @@ class SignUp extends StatelessWidget {
                   Container(
                       height: 50,
                       margin:
-                          const EdgeInsets.only(top: 520, left: 40, right: 40),
+                          const EdgeInsets.only(top: 455, left: 40, right: 40),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(30),
@@ -251,14 +213,17 @@ class SignUp extends StatelessWidget {
                       )),
                   Container(
                       padding:
-                          const EdgeInsets.only(top: 617, left: 40, right: 40),
+                          const EdgeInsets.only(top: 540, left: 40, right: 40),
                       child: ElevatedButton(
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               UserModel? registerUser =
                                   await rolebaseConntroller
-                                      .registerWithEmailAndPassword(email!,
-                                          namaPawrent!, phone!, password!);
+                                      .registerWithEmailAndPassword(
+                                email!,
+                                namaPawrent!,
+                                password!,
+                              );
                               if (registerUser != null) {
                                 showDialog(
                                   context: context,
@@ -343,7 +308,7 @@ class SignUp extends StatelessWidget {
                                 height: 152 / 100,
                               )))),
                   Container(
-                    margin: const EdgeInsets.only(top: 680),
+                    margin: const EdgeInsets.only(top: 610),
                     alignment: Alignment.center,
                     child: Column(children: [
                       Text.rich(TextSpan(

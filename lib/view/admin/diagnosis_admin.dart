@@ -1,5 +1,5 @@
 import 'package:aloanimal/controller/diagnosis_controller.dart';
-import 'package:aloanimal/view/adminPage/admin_page.dart';
+import 'package:aloanimal/view/admin/admin_page.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

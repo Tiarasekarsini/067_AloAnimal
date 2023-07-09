@@ -1,7 +1,7 @@
 import 'package:aloanimal/controller/feedback1_controller.dart';
-import 'package:aloanimal/view/adminPage/admin_page.dart';
-import 'package:aloanimal/view/adminPage/feedback1/add_feedback1.dart';
-import 'package:aloanimal/view/adminPage/feedback1/edit_feedback1.dart';
+import 'package:aloanimal/view/admin/admin_page.dart';
+import 'package:aloanimal/view/admin/feedback1/add_feedback1.dart';
+import 'package:aloanimal/view/admin/feedback1/edit_feedback1.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
