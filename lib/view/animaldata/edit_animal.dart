@@ -66,18 +66,6 @@ class _EditAnimalState extends State<EditAnimal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Edit Animal Data'),
-          titleTextStyle: GoogleFonts.lato(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => HomePage()));
-            },
-          ),
-        ),
         body: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
             child: Form(
@@ -338,7 +326,7 @@ class _EditAnimalState extends State<EditAnimal> {
                         const EdgeInsets.only(top: 520, left: 10, right: 10),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(230, 252, 87, 158),
+                        backgroundColor: Colors.green,
                         minimumSize: Size(double.infinity, 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40)),
@@ -390,7 +378,7 @@ class _EditAnimalState extends State<EditAnimal> {
                           const EdgeInsets.only(top: 590, left: 10, right: 10),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(230, 252, 87, 158),
+                          backgroundColor: Colors.red,
                           minimumSize: Size(double.infinity, 50),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(40)),

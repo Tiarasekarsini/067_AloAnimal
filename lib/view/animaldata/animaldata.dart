@@ -30,6 +30,13 @@ class _AnimalDataState extends State<AnimalData> {
         title: const Text('Animal Data'),
         titleTextStyle: GoogleFonts.lato(
             fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          },
+        ),
       ),
       body: SafeArea(
           child:
