@@ -79,7 +79,7 @@ class _Feedback1State extends State<Feedback1> {
                               style: GoogleFonts.lato(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
-                            subtitle: Text(data[index]['feedback']),
+                            // subtitle: Text(data[index]['feedback']),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
