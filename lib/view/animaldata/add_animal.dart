@@ -90,6 +90,12 @@ class _AddAnimalState extends State<AddAnimal> {
                     onChanged: (value) {
                       namaK = value;
                     },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your animal name";
+                      }
+                      return null;
+                    },
                   )),
               Container(
                 height: 50,
@@ -124,6 +130,12 @@ class _AddAnimalState extends State<AddAnimal> {
                   ),
                   onChanged: (value) {
                     tanggalLahir = value;
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your animal birth date";
+                    }
+                    return null;
                   },
                 ),
               ),
@@ -225,6 +237,12 @@ class _AddAnimalState extends State<AddAnimal> {
                   onChanged: (value) {
                     ras = value;
                   },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your animal ras";
+                    }
+                    return null;
+                  },
                 ),
               ),
               Container(
@@ -260,6 +278,12 @@ class _AddAnimalState extends State<AddAnimal> {
                   ),
                   onChanged: (value) {
                     color = value;
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your animal color";
+                    }
+                    return null;
                   },
                 ),
               ),
