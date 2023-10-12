@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
+  ///UI untuk halaman pertama ketika aplikasi dibuka
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +45,7 @@ class WelcomePage extends StatelessWidget {
                     ]),
               )),
           Container(
+            ///elevated button untuk SignIn
             padding: const EdgeInsets.only(top: 590, left: 40, right: 40),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -57,6 +59,8 @@ class WelcomePage extends StatelessWidget {
                     letterSpacing: 3.5 / 100,
                     height: 152 / 100),
               ),
+
+              ///proses ketika user menekan tombol, maka akan diarahkan ke halaman SignIn
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => SignIn()));
@@ -73,6 +77,8 @@ class WelcomePage extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.only(top: 660, left: 40, right: 40),
+
+            ///elevatd Button untuk SignUp
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(230, 252, 87, 158),
@@ -85,6 +91,8 @@ class WelcomePage extends StatelessWidget {
                     letterSpacing: 3.5 / 100,
                     height: 152 / 100),
               ),
+
+              ///proses apabila user menekan tombol signUp, maka dialihkan ke halaman tsb
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => SignUp()));

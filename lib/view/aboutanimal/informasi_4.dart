@@ -8,15 +8,23 @@ class Informasi4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
+
+        ///membuat judul/tulisan pada halaman yang sedang aktif
         appBar: AppBar(
           title: const Text('Routine Care'),
+
+          ///mengubah style font
           titleTextStyle: GoogleFonts.lato(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: const Color.fromARGB(242, 131, 131, 255),
           ),
         ),
+
+        ///fungsi agar halaman yang aktif bisa di scroll oleh pengguna
         body: SingleChildScrollView(
+
+            ///safe area digunakan agar posisi konten tetap dan tidak berubah
             child: SafeArea(
                 child: Column(children: [
           const SizedBox(height: 10),
@@ -24,6 +32,8 @@ class Informasi4 extends StatelessWidget {
             'Routine Care',
             style: GoogleFonts.lato(fontSize: 25, fontWeight: FontWeight.bold),
           ),
+
+          ///menambahkan gambar
           Image.asset('assets/images/informasi4.png'),
           Container(
               decoration: BoxDecoration(

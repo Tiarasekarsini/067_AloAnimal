@@ -16,10 +16,13 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
+  ///menginisiasi kelas RoleBaseController
   final RoleBaseController rbc = RoleBaseController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        ///safe area digunakan agar posisi konten tetap dan tidak berubah
         body: SafeArea(
       child: Column(
         children: [
@@ -38,8 +41,12 @@ class _AdminPageState extends State<AdminPage> {
                 ),
                 IconButton(
                   icon: Icon(Icons.logout),
+
+                  ///fungsi ketika menekan icon logout, maka pengguna akan keluar dari halaman terakhir dan diarahkan kehalaman login
                   onPressed: () {
                     rbc.signOut();
+
+                    ///pengguna akan diarahkan ke halaman signin/login
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => SignIn()));
                   },
@@ -47,12 +54,16 @@ class _AdminPageState extends State<AdminPage> {
               ],
             ),
           ),
+
+          ///membuat garis tipiss sebagai pembatas
           const Divider(
             color: Color.fromARGB(94, 158, 158, 158),
             thickness: 1,
             indent: 27,
             endIndent: 27,
           ),
+
+          ///membuat tampilan dalam bentuk card
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -77,9 +88,12 @@ class _AdminPageState extends State<AdminPage> {
                       Align(
                         alignment: Alignment.bottomRight,
                         child: IconButton(
+                          ///fungsi ktika icon di klik, maka akan pindah ke halaman lain
                           onPressed: () {
                             Navigator.push(
                                 context,
+
+                                ///menentukan halaman mana yang akan dituju setelah ikon di tekan
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         const DiagnosisAdmin()));
@@ -92,6 +106,8 @@ class _AdminPageState extends State<AdminPage> {
                   ],
                 )),
           ),
+
+          ///membuat tampilan dalam bentuk card
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -116,7 +132,9 @@ class _AdminPageState extends State<AdminPage> {
                       Align(
                         alignment: Alignment.bottomRight,
                         child: IconButton(
+                          ///fungsi ktika icon di klik, maka akan pindah ke halaman lain
                           onPressed: () {
+                            ///menentukan halaman mana yang akan dituju setelah ikon di tekan
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

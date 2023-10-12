@@ -13,10 +13,14 @@ class DiagnosisAdmin extends StatefulWidget {
 }
 
 class _DiagnosisAdminState extends State<DiagnosisAdmin> {
+  ///membuat sebuah variable dari inisialiasi DiagnosisController
+  ///untuk dapat menggunakan/mengakses metode dikelas DiagnosisController
   var dc = DiagnosisController();
 
   @override
   void initState() {
+    ///memanggil metode yang ada pada kelas DiagnosisController
+    ///untuk memanggil/menampilkan data
     dc.getContact();
     super.initState();
   }
@@ -24,6 +28,7 @@ class _DiagnosisAdminState extends State<DiagnosisAdmin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      ///membuat judul/tulisan pada halaman yang sedang aktif
       appBar: AppBar(
         title: const Text('Diagnostics Data'),
         titleTextStyle: GoogleFonts.lato(
@@ -36,6 +41,8 @@ class _DiagnosisAdminState extends State<DiagnosisAdmin> {
           },
         ),
       ),
+
+      ///safe area digunakan agar posisi konten tetap dan tidak berubah
       body: SafeArea(
           child: Column(children: [
         Container(
@@ -64,6 +71,8 @@ class _DiagnosisAdminState extends State<DiagnosisAdmin> {
         const SizedBox(
           height: 10,
         ),
+
+        ///widget yang memungkinkan dapat terisi sesuai dengan ruang yang tersedia
         Expanded(
           child: StreamBuilder<List<DocumentSnapshot>>(
             stream: dc.stream,
@@ -85,6 +94,7 @@ class _DiagnosisAdminState extends State<DiagnosisAdmin> {
                         padding: const EdgeInsets.all(5),
                         height: 70,
                         child: ListTile(
+                          ///mengambil dan memunculkan data dari kelas DiagnosisController bagian Nama Penyakit
                           title: Text(
                             data[index]['namaPenyakit'],
                             style: GoogleFonts.lato(

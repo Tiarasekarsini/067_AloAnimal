@@ -13,12 +13,15 @@ class AddFeedback1 extends StatefulWidget {
 }
 
 class _AddFeedback1State extends State<AddFeedback1> {
+  ///membuat variabel untuk menginisiasi kelas FeedbackController
   var f1c = FeedBack1Controller();
 
+  ///objek untuk mengelola form
   final formkey = GlobalKey<FormState>();
   String? namaPenyakit;
   String? feedback1;
 
+  ///membuat list/isian untuk dropdown
   List<String> np = [
     'CANINE PARVOVIRUS',
     'CANINE HEPATITIS',
@@ -31,8 +34,12 @@ class _AddFeedback1State extends State<AddFeedback1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        ///widget agar halaman yang aktif bisa di scroll oleh pengguna
         body: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
+
+            ///membuat/mengatur tampilan form
             child: Form(
                 key: formkey,
                 child: Stack(children: [
@@ -63,9 +70,13 @@ class _AddFeedback1State extends State<AddFeedback1> {
                         ),
                       ],
                     ),
+
+                    ///tampilan dropdown
                     child: DropdownButton(
                       hint: const Text('Choose a diagnosis disease'),
                       value: namaPenyakit,
+
+                      ///menyimpan data yang dipilih pengguna
                       onChanged: (value) {
                         setState(() {
                           namaPenyakit = value;
@@ -96,6 +107,8 @@ class _AddFeedback1State extends State<AddFeedback1> {
                                 offset: Offset(1, 1),
                                 color: Colors.grey.withOpacity(0.2))
                           ]),
+
+                      ///membuat tampilan field yang ukuran dan maksimal katanya ditentukan
                       child: TextFormField(
                         maxLength: 4096,
                         maxLines: 10,
@@ -112,11 +125,14 @@ class _AddFeedback1State extends State<AddFeedback1> {
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 1.0))),
                         validator: (value) {
+                          ///output apabila pengguna tidak menginput/mengosongkan field
                           if (value == null || value.isEmpty) {
                             return "Please enter your feedback";
                           }
                           return null;
                         },
+
+                        ///menyimpan inputan dari pengguna
                         onChanged: (value) {
                           feedback1 = value;
                         },
@@ -137,16 +153,21 @@ class _AddFeedback1State extends State<AddFeedback1> {
                           height: 152 / 100,
                         ),
                       ),
+
+                      ///ketika pengguna mengklik tombol save, dilakukan pengeceka terlebih dahulu
                       onPressed: () {
                         if (formkey.currentState!.validate()) {
                           Feedback1Model f1m = Feedback1Model(
                               feedback: feedback1!,
                               namaPenyakit: namaPenyakit!);
                           f1c.addFeedback1(f1m);
+
+                          ///snackbar yang akan muncul ketika inputan sesuai
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text(
                                   'Pawrents! Your data has been successfully added!')));
 
+                          ///pengguna akan diarahkan kehalaman feedback1
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -180,6 +201,8 @@ class _AddFeedback1State extends State<AddFeedback1> {
                           height: 152 / 100,
                         ),
                       ),
+
+                      ///jika pengguna mengklik tombol Cancel, maka pengguna akan diarahkan ke halaman feedback1
                       onPressed: () {
                         Navigator.pushReplacement(
                             context,

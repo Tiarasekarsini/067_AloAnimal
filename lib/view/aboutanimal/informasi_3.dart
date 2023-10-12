@@ -7,6 +7,8 @@ class Informasi3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        ///membuat judul/tulisan pada halaman yang sedang aktif
         appBar: AppBar(
           title: const Text('Vaccination Schedule'),
           titleTextStyle: GoogleFonts.lato(
@@ -15,7 +17,10 @@ class Informasi3 extends StatelessWidget {
             color: Color.fromARGB(255, 255, 65, 125),
           ),
         ),
+
+        ///fungsi agar halaman yang aktif bisa di scroll oleh pengguna
         body: SingleChildScrollView(
+          ///safe area digunakan agar posisi konten tetap dan tidak berubah
           child: SafeArea(
             child: Column(
               children: [
@@ -27,6 +32,8 @@ class Informasi3 extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
+                ///kontainer digunakan untuk membungkus semua konten
                 Container(
                   margin: const EdgeInsets.only(left: 30, right: 30, top: 20),
                   decoration: BoxDecoration(

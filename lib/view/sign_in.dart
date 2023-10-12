@@ -11,15 +11,20 @@ import 'package:google_fonts/google_fonts.dart';
 class SignIn extends StatelessWidget {
   SignIn({super.key});
   final _formKey = GlobalKey<FormState>();
+
+  ///menginisiasi kelas RBC
   final rolebaseController = RoleBaseController();
   @override
   Widget build(BuildContext context) {
+    ///deklarasi variabel
     String? email;
     String? password;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+
+          ///widget form untuk formuliiir
           child: Form(
         key: _formKey,
         child: Stack(
@@ -30,6 +35,8 @@ class SignIn extends StatelessWidget {
                 'assets/images/top.png',
               ),
             ),
+
+            ///membungkus beberapa konten dengan container
             Container(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Image.asset(
@@ -77,6 +84,8 @@ class SignIn extends StatelessWidget {
                           offset: Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2))
                     ]),
+
+                ///membuat field untuk isian email
                 child: TextFormField(
                   decoration: InputDecoration(
                       hintText: "Enter your email",
@@ -91,12 +100,17 @@ class SignIn extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                           borderSide: const BorderSide(
                               color: Colors.white, width: 1.0))),
+
+                  ///melakukan validasi dan mmeriksa jiga tidak ada inputan dari user
+                  ///apabila user mengosongka field
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please enter your email";
                     }
                     return null;
                   },
+
+                  ///menyimpan inputan sementara
                   onChanged: (value) {
                     email = value;
                   },
@@ -114,6 +128,8 @@ class SignIn extends StatelessWidget {
                           offset: Offset(1, 1),
                           color: Colors.grey.withOpacity(0.2))
                     ]),
+
+                ///field untuk inputan password
                 child: TextFormField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -130,36 +146,48 @@ class SignIn extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                           borderSide: const BorderSide(
                               color: Colors.white, width: 1.0))),
+
+                  ///melakukan validasi dan mmeriksa jiga tidak ada inputan dari user
+                  ///apabila user mengosongka field
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please enter your password";
                     }
                     return null;
                   },
+
+                  ///menyimpan isian data
                   onChanged: (value) {
                     password = value;
                   },
                 )),
             Container(
                 padding: const EdgeInsets.only(top: 617, left: 40, right: 40),
+
+                ///Elevated button untuk memeriksa isian user
                 child: ElevatedButton(
                     onPressed: () async {
+                      ///memvalidasi email dan password yng dimasukkan user harus sesuai dnegan yang sudah terdaftar di firestore
                       if (_formKey.currentState!.validate()) {
+                        ///memeriksa role user
                         UserModel? loginUser = await rolebaseController
                             .signInWithEmailAndPassword(email!, password!);
                         if (loginUser != null) {
                           if (loginUser.role == 'admin') {
+                            ///jika admin, maka akan diarahkan ke adminPage
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
                               return AdminPage();
                             }));
                           } else {
+                            ///jika selain admin, maka akan diarahkan ke HomePage
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
                               return HomePage();
                             }));
                           }
                         } else {
+                          ///pesan apabila data yang dimaskkan tidak sesuai
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {
@@ -195,6 +223,8 @@ class SignIn extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
+                    ///mengubah style elevated button
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromARGB(230, 252, 87, 158),
                         minimumSize: Size(double.infinity, 50),
@@ -223,6 +253,7 @@ class SignIn extends StatelessWidget {
                               fontWeight: FontWeight.w900),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
+                              ///jika pnggna belum memiliki akun, maka akan diarakhn ke halaman sign up
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(

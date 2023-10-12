@@ -15,10 +15,12 @@ class AnimalData extends StatefulWidget {
 }
 
 class _AnimalDataState extends State<AnimalData> {
+  ///menginisiasi kelas AnimalController
   var ac = AnimalController();
 
   @override
   void initState() {
+    ///menginisiasi untuk data menggunakan metode yang ada di animalcontroller
     ac.getContact();
     super.initState();
   }
@@ -65,6 +67,8 @@ class _AnimalDataState extends State<AnimalData> {
                   child: CircularProgressIndicator(),
                 );
               }
+
+              ///menampilkan data yang tersimpan di firestore
               final List<DocumentSnapshot> data = snapshot.data!;
               return ListView.builder(
                   itemCount: data.length,
@@ -90,6 +94,8 @@ class _AnimalDataState extends State<AnimalData> {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 IconButton(
+
+                                    ///proses apabila pengguna menean ikon delete
                                     onPressed: () {
                                       showDialog(
                                           context: context,
@@ -160,6 +166,7 @@ class _AnimalDataState extends State<AnimalData> {
                                     icon: const Icon(
                                         Icons.delete_outline_rounded)),
                                 IconButton(
+                                  ///proses ketika pengguna menekan tombol edit
                                   onPressed: () {
                                     Navigator.push(
                                         context,
@@ -187,6 +194,8 @@ class _AnimalDataState extends State<AnimalData> {
           ),
         ),
       ])),
+
+      ///FAC untuk menambahkan data animal
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromARGB(230, 252, 87, 158),
         onPressed: () {

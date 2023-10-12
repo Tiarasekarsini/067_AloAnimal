@@ -17,12 +17,14 @@ class EditFeedback1 extends StatefulWidget {
 }
 
 class _EditFeedback1State extends State<EditFeedback1> {
+  ///menginisiasi kelas Feedback1Controller
   final f1c = FeedBack1Controller();
   var formkey = GlobalKey<FormState>();
 
   String? namaPBaru;
   String? feedbackBaru;
 
+  ///menentukan isian untuk dropdown
   List<String> np = [
     'CANINE PARVOVIRUS',
     'CANINE HEPATITIS',
@@ -34,14 +36,20 @@ class _EditFeedback1State extends State<EditFeedback1> {
   @override
   void initState() {
     super.initState();
+
+    ///untuk menampilkan isian yang pertama kkali diinput sebelum dilakukan edit data
     namaPBaru = widget.namaPAsal;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        ///widget agar halaman dapat di scroll pengguna
         body: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
+
+            ///membuat tampilan dalam bentuk form
             child: Form(
                 key: formkey,
                 child: Stack(children: [
@@ -72,9 +80,13 @@ class _EditFeedback1State extends State<EditFeedback1> {
                         ),
                       ],
                     ),
+
+                    ///tampilan drop down
                     child: DropdownButton(
                       hint: const Text('Choose a diagnosis disease'),
                       value: namaPBaru,
+
+                      ///menyimpan namaPBaru
                       onChanged: (value) {
                         setState(() {
                           namaPBaru = value;
@@ -105,6 +117,8 @@ class _EditFeedback1State extends State<EditFeedback1> {
                               offset: Offset(1, 1),
                               color: Colors.grey.withOpacity(0.2))
                         ]),
+
+                    ///membuat field yang diatur ukuran dan jumlah kata nya
                     child: TextFormField(
                       maxLength: 4096,
                       maxLines: 10,
@@ -120,9 +134,12 @@ class _EditFeedback1State extends State<EditFeedback1> {
                               borderRadius: BorderRadius.circular(30),
                               borderSide: const BorderSide(
                                   color: Colors.white, width: 1.0))),
+                      //menyimpan rekaman data baru yang baru diinputkan
                       onSaved: (value) {
                         feedbackBaru = value;
                       },
+
+                      ///menampilkan inputan awal
                       initialValue: widget.feedbackAsal,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -148,6 +165,8 @@ class _EditFeedback1State extends State<EditFeedback1> {
                           height: 152 / 100,
                         ),
                       ),
+
+                      ///memeriksa isian data yang baru ketika pengguna mengklik tombol Save
                       onPressed: () {
                         if (formkey.currentState!.validate()) {
                           formkey.currentState!.save();
@@ -158,10 +177,13 @@ class _EditFeedback1State extends State<EditFeedback1> {
                           );
 
                           f1c.editFeedback1(f1m);
+
+                          ///menampilkan pesan dalam bentuk snackbar ketika sukses
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text(
                                   'Your Animal Data Successfully Updated Changed')));
 
+                          ///mengalihkan halaman ke halaman feedback1
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -197,6 +219,8 @@ class _EditFeedback1State extends State<EditFeedback1> {
                           height: 152 / 100,
                         ),
                       ),
+
+                      ///mengalihkan ke halaman feedback1 ketika menekan tombol Cancel tanpa adanya perubahan pada data
                       onPressed: () {
                         Navigator.pushReplacement(
                             context,

@@ -15,7 +15,10 @@ class AddAnimal extends StatefulWidget {
 }
 
 class _AddAnimalState extends State<AddAnimal> {
+  ///membuat variable yang menginisiasi kelas AnimalController
   var animalController = AnimalController();
+
+  ///menginisiassi TEC untuk date
   TextEditingController date = TextEditingController();
 
   final formkey = GlobalKey<FormState>();
@@ -27,6 +30,7 @@ class _AddAnimalState extends State<AddAnimal> {
   String? ras;
   String? color;
 
+  ///menentukan list/isian dropdown umur animal
   List<String> listItem = [
     '< 1 years old',
     '1 years old',
@@ -39,6 +43,7 @@ class _AddAnimalState extends State<AddAnimal> {
     '> 7 years old'
   ];
 
+  ///menentukan list/isian dropdown jenis kelamin
   List<String> jk = [
     'Male',
     'Female',
@@ -53,6 +58,7 @@ class _AddAnimalState extends State<AddAnimal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      ///fungsi agar halaman yang aktif bisa di scroll oleh pengguna
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Form(
@@ -82,6 +88,8 @@ class _AddAnimalState extends State<AddAnimal> {
                             offset: Offset(1, 1),
                             color: Colors.grey.withOpacity(0.2))
                       ]),
+
+                  ///membuat field untuk inputan nama animal
                   child: TextFormField(
                     decoration: InputDecoration(
                         hintText: "Enter your animal name",
@@ -96,9 +104,13 @@ class _AddAnimalState extends State<AddAnimal> {
                             borderRadius: BorderRadius.circular(30),
                             borderSide: const BorderSide(
                                 color: Colors.white, width: 1.0))),
+
+                    ///menyimpan isian nama yang diinput pengguna
                     onChanged: (value) {
                       namaK = value;
                     },
+
+                    ///memeriksa apakah isian valid atau tidak
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Please enter your animal name";
@@ -121,6 +133,8 @@ class _AddAnimalState extends State<AddAnimal> {
                     ),
                   ],
                 ),
+
+                ///membuat field untuk date
                 child: TextFormField(
                   controller: date,
                   decoration: InputDecoration(
@@ -155,9 +169,13 @@ class _AddAnimalState extends State<AddAnimal> {
                       });
                     }
                   },
+
+                  ///menyimpan inputan
                   onChanged: (value) {
                     tanggalLahir = value;
                   },
+
+                  ///memvalidasi apabila isian dikosongkan pengguna
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please enter your animal birth date";
@@ -182,9 +200,13 @@ class _AddAnimalState extends State<AddAnimal> {
                     ),
                   ],
                 ),
+
+                ///menampilkan dropdown untuk isian gender animal
                 child: DropdownButton(
                   hint: const Text('Choose your animal gender'),
                   value: jeniskelamin,
+
+                  ///menyimpan inputan pengguna
                   onChanged: (value) {
                     setState(() {
                       jeniskelamin = value;
@@ -216,9 +238,13 @@ class _AddAnimalState extends State<AddAnimal> {
                     ),
                   ],
                 ),
+
+                ///menampilkan dropdown animal age
                 child: DropdownButton(
                   hint: const Text('Choose your animal age'),
                   value: age,
+
+                  ///menyimpan isian dari pengguna
                   onChanged: (value) {
                     setState(() {
                       age = value;
@@ -261,9 +287,13 @@ class _AddAnimalState extends State<AddAnimal> {
                           const BorderSide(color: Colors.white, width: 1.0),
                     ),
                   ),
+
+                  ///menyimpan inputan dari pengguna
                   onChanged: (value) {
                     ras = value;
                   },
+
+                  ///menampilkan pesan/memvalidasi apabila field dikosongkan pengguna
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please enter your animal ras";
@@ -287,6 +317,8 @@ class _AddAnimalState extends State<AddAnimal> {
                     ),
                   ],
                 ),
+
+                ///membuat field untuk warna animal
                 child: TextFormField(
                   decoration: InputDecoration(
                     hintText: "Enter the color",
@@ -303,9 +335,13 @@ class _AddAnimalState extends State<AddAnimal> {
                           const BorderSide(color: Colors.white, width: 1.0),
                     ),
                   ),
+
+                  ///menyimpan isian dari pengguna
                   onChanged: (value) {
                     color = value;
                   },
+
+                  ///memeriksan dan menampilkan pesan jika pengguna mengosongkan field
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please enter your animal color";
@@ -329,7 +365,10 @@ class _AddAnimalState extends State<AddAnimal> {
                       height: 152 / 100,
                     ),
                   ),
+
+                  ///proses ketika pengguna menekan tombol save
                   onPressed: () {
+                    ///memeriksa inputan dari pengguna
                     if (formkey.currentState!.validate()) {
                       AnimalModel am = AnimalModel(
                         namaK: namaK!,
@@ -340,10 +379,13 @@ class _AddAnimalState extends State<AddAnimal> {
                         color: color!,
                       );
                       animalController.addAnimal(am);
+
+                      ///menampilkan pesan apabila isian sudah sesuai
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text(
                               'Pawrents! Your data has been successfully added!')));
 
+                      ///mengalihkan ke halaman AnimalData
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => AnimalData()),
@@ -375,6 +417,8 @@ class _AddAnimalState extends State<AddAnimal> {
                         height: 152 / 100,
                       ),
                     ),
+
+                    ///mengalihkan langsung ke halaman AnimalData
                     onPressed: () {
                       Navigator.pop(
                           context,
