@@ -15,6 +15,7 @@ class Diagnosis extends StatefulWidget {
 }
 
 class _DiagnosisState extends State<Diagnosis> {
+  ///variabel untuk menginisiasi kelas Diagnosis Controller
   var diagnosisController = DiagnosisController();
   String? namaPenyakit;
   String? tidakTerdiagnosis;
@@ -45,6 +46,8 @@ class _DiagnosisState extends State<Diagnosis> {
             color: Colors.black,
           ),
         ),
+
+        ///widget supaya halaman dapat di scroll
         body: SingleChildScrollView(
             child: Container(
           margin:
@@ -110,9 +113,13 @@ class _DiagnosisState extends State<Diagnosis> {
                 indent: 27,
                 endIndent: 27,
               ),
+
+              ///menampilkan selectbox tentang gejala penyakit hewan
               CheckboxListTile(
                   title: Text('Demam'),
                   value: checkedList[0],
+
+                  ///jika telah memasukkan data, maka sistem akan menampilkan outputnya
                   onChanged: (value) {
                     setState(() {
                       checkedList[0] = value!;
@@ -215,11 +222,15 @@ class _DiagnosisState extends State<Diagnosis> {
               const SizedBox(
                 height: 20,
               ),
+
+              ///membuat tombol untuk nantinya menampilkan hasil penyakit dari gejala yang sudah dipilih
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(230, 252, 87, 158)),
                 onPressed: () {
+                  ///menggunakan else if kondisional untuk menampilkan nama penyakit berdasarkan selection box yng dipilih
                   if (checkedList[5] && checkedList[6]) {
+                    ///contoh output yang akan keluar
                     namaPenyakit = "CANINE PARVOVIRUS";
 
                     DiagnosisModel dm =

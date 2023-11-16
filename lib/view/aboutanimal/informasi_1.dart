@@ -7,6 +7,8 @@ class Informasi1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        ///membuat judul/tulisan pada halaman yang sedang aktif
         appBar: AppBar(
           title: const Text('Important Things'),
           titleTextStyle: GoogleFonts.lato(
@@ -15,7 +17,11 @@ class Informasi1 extends StatelessWidget {
             color: Color.fromARGB(255, 255, 247, 0),
           ),
         ),
+
+        ///fungsi agar halaman yang aktif bisa di scroll oleh pengguna
         body: SingleChildScrollView(
+
+            ///safe area digunakan agar posisi konten tetap dan tidak berubah
             child: SafeArea(
                 child: Column(
           children: [
@@ -25,6 +31,8 @@ class Informasi1 extends StatelessWidget {
               style:
                   GoogleFonts.lato(fontSize: 25, fontWeight: FontWeight.bold),
             ),
+
+            ///menambahkan gambar
             Image.asset('assets/images/informasi1.png'),
             Container(
               decoration: BoxDecoration(

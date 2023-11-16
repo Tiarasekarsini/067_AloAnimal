@@ -18,11 +18,13 @@ class RiwayatDiagnosis extends StatefulWidget {
 }
 
 class _RiwayatDiagnosisState extends State<RiwayatDiagnosis> {
+  ///menginisiasi kelas Controller
   var dc = DiagnosisController();
   var f1c = FeedBack1Controller();
 
   @override
   void initState() {
+    ///menginisiasi supaya dapat menggunakan metode yang ada di Controller
     dc.getContact();
     f1c.getFeedback1();
     super.initState();
@@ -48,6 +50,8 @@ class _RiwayatDiagnosisState extends State<RiwayatDiagnosis> {
           },
         ),
       ),
+
+      ///safe area digunakan agar posisi konten tetap dan tidak berubah
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,6 +96,8 @@ class _RiwayatDiagnosisState extends State<RiwayatDiagnosis> {
                         icon: const Icon(Icons.lightbulb_outline),
                         color: Colors.amber.shade500,
                         iconSize: 40,
+
+                        ///output apabila pengguna menekan salah satu ikon (lampu)
                         onPressed: () {
                           AwesomeDialog(
                             context: context,
@@ -135,6 +141,8 @@ class _RiwayatDiagnosisState extends State<RiwayatDiagnosis> {
                       child: CircularProgressIndicator(),
                     );
                   }
+
+                  ///menampilkan list riwayat diagnosa dari animal
                   final List<DocumentSnapshot> data = snapshot.data!;
                   return ListView.builder(
                     itemCount: data.length,

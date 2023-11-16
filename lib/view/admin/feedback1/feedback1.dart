@@ -15,10 +15,12 @@ class Feedback1 extends StatefulWidget {
 }
 
 class _Feedback1State extends State<Feedback1> {
+  ///menginisiasi kelas FeedBack1Controller
   var f1c = FeedBack1Controller();
 
   @override
   void initState() {
+    ///menggunakan metod yang ada di kelas FeedBack1Controller
     f1c.getFeedback1();
     super.initState();
   }
@@ -26,18 +28,23 @@ class _Feedback1State extends State<Feedback1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      ///membuat judul/tulisan pada halaman yang sedang aktif
       appBar: AppBar(
         title: const Text('Veterinarian Feedback'),
         titleTextStyle: GoogleFonts.lato(
             fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
+
+          ///mengalihkan ke halaman lain ketika ikon di tekan
           onPressed: () {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => AdminPage()));
           },
         ),
       ),
+
+      ///safe area digunakan agar posisi konten tetap dan tidak berubah
       body: SafeArea(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
@@ -79,11 +86,13 @@ class _Feedback1State extends State<Feedback1> {
                               style: GoogleFonts.lato(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
-                            // subtitle: Text(data[index]['feedback']),
+
+                            ///subtitle: Text(data[index]['feedback']),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 IconButton(
+                                  ///mengambil data ketika ikon di klik dan mengalhkan ke halaman EditFeedback1
                                   onPressed: () {
                                     Navigator.push(
                                         context,
@@ -105,6 +114,8 @@ class _Feedback1State extends State<Feedback1> {
           ),
         ),
       ])),
+
+      ///membuat FAB untuk menambahkan data fedback
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromARGB(230, 252, 87, 158),
         onPressed: () {

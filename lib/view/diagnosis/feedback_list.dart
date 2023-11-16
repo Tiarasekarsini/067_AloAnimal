@@ -13,10 +13,12 @@ class FeedbackList extends StatefulWidget {
 }
 
 class _FeedbackListState extends State<FeedbackList> {
+  ///membuat variabel untuk menginisiasi kelas FeedBack1Controller
   var f1c = FeedBack1Controller();
 
   @override
   void initState() {
+    ///menginisiasi supaya dapat menggunakan metode yg ada di FeedBack1Controller
     f1c.getFeedback1();
     super.initState();
   }
@@ -60,6 +62,8 @@ class _FeedbackListState extends State<FeedbackList> {
                     child: CircularProgressIndicator(),
                   );
                 }
+
+                ///menampilkan data yang telah tersimpan di Firestore
                 final List<DocumentSnapshot> data = snapshot.data!;
                 return ListView.builder(
                   itemCount: data.length,

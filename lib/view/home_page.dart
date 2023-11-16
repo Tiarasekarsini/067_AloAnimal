@@ -16,8 +16,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ///menginisiasi kelas RoleBaseController
   final RoleBaseController rbc = RoleBaseController();
 
+  ///membuat inisiasi untuk carusol
   final PageController _controller = PageController();
   int _currentPage = 0;
 
@@ -43,8 +45,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     IconButton(
                       icon: Icon(Icons.logout),
+
+                      ///proses ketika pengguna menekan ikon sign out
                       onPressed: () {
                         rbc.signOut();
+
+                        ///mengalihkan ke halaman Sign In
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => SignIn()));
                       },
@@ -52,6 +58,8 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+
+              ///membuat Carousel
               Container(
                 height: 200,
                 margin: const EdgeInsets.only(top: 20, left: 27, right: 27),
@@ -64,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   scrollDirection: Axis.horizontal,
                   children: [
+                    ///slide2 yang ada di carousel
                     Container(
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(242, 131, 131, 255),
@@ -128,6 +137,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 10),
+
+              ///membuat indicator page untuk carousel
               SmoothPageIndicator(
                 controller: _controller,
                 count: 4,
@@ -149,6 +160,9 @@ class _HomePageState extends State<HomePage> {
                 style:
                     GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
               ),
+
+              ///membuat row untuk menampilkan fitur yang adda pada aplikasi aloanimal
+              ///dan nantinya akan diarahkan ke halaman lain apabila pengguna mengklik salah satu gambar
               Row(
                 children: [
                   GestureDetector(

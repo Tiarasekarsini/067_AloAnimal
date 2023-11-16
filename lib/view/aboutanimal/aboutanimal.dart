@@ -17,18 +17,25 @@ class _AboutAnimalState extends State<AboutAnimal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        ///membuat title di pjok kiri atas, agar pengguna tahu sedang berada dihalaman mana
         title: const Text('About Animal'),
+
+        ///mengubah style text
         titleTextStyle: GoogleFonts.lato(
           fontSize: 20,
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
       ),
+
+      ///menggunakan singleChildScrollView agar pengguna dapat menggulir layar kebawah
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
+            ///mengatur posisi agar ditengah
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              ///mengatur jarak atas
               const Padding(
                 padding: EdgeInsets.only(top: 5),
               ),
@@ -47,10 +54,14 @@ class _AboutAnimalState extends State<AboutAnimal> {
                 endIndent: 27,
               ),
               SizedBox(height: 10),
+
+              ///membuat tampilan dalam bentuk card agar ukuran dan jarak nya sama
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
+
+                ///setiap konten dibungkus lagi dengan container agar mudah dirapihkan
                 child: Container(
                   padding: EdgeInsets.all(15),
                   color: const Color(0xFFFFF854),
@@ -75,6 +86,7 @@ class _AboutAnimalState extends State<AboutAnimal> {
                         Align(
                           alignment: Alignment.bottomRight,
                           child: IconButton(
+                            ///fungsi onpress diguunakan untuk perpindahan halaman ketika icon ditekan
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -91,6 +103,8 @@ class _AboutAnimalState extends State<AboutAnimal> {
                   ),
                 ),
               ),
+
+              ///membuat tampilan dalam bentuk card agar ukuran dan jarak nya sama
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -119,6 +133,7 @@ class _AboutAnimalState extends State<AboutAnimal> {
                         Align(
                           alignment: Alignment.bottomRight,
                           child: IconButton(
+                            ///fungsi onpress diguunakan untuk perpindahan halaman ketika icon ditekan
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -135,6 +150,8 @@ class _AboutAnimalState extends State<AboutAnimal> {
                   ),
                 ),
               ),
+
+              ///membuat tampilan dalam bentuk card agar ukuran dan jarak nya sama
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -163,6 +180,7 @@ class _AboutAnimalState extends State<AboutAnimal> {
                         Align(
                           alignment: Alignment.bottomRight,
                           child: IconButton(
+                            ///fungsi onpress diguunakan untuk perpindahan halaman ketika icon ditekan
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -179,6 +197,8 @@ class _AboutAnimalState extends State<AboutAnimal> {
                   ),
                 ),
               ),
+
+              ///membuat tampilan dalam bentuk card agar ukuran dan jarak nya sama
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -207,6 +227,7 @@ class _AboutAnimalState extends State<AboutAnimal> {
                         Align(
                           alignment: Alignment.bottomRight,
                           child: IconButton(
+                            ///fungsi onpress diguunakan untuk perpindahan halaman ketika icon ditekan
                             onPressed: () {
                               Navigator.push(
                                   context,

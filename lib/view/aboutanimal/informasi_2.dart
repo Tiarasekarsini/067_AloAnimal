@@ -7,6 +7,8 @@ class Informasi2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        ///membuat judul/tulisan pada halaman yang sedang aktif
         appBar: AppBar(
           title: const Text('Why and When'),
           titleTextStyle: GoogleFonts.lato(
@@ -15,7 +17,11 @@ class Informasi2 extends StatelessWidget {
             color: const Color(0xFFADE62A),
           ),
         ),
+
+        ///fungsi agar halaman yang aktif bisa di scroll oleh pengguna
         body: SingleChildScrollView(
+
+            ///safe area digunakan agar posisi konten tetap dan tidak berubah
             child: SafeArea(
                 child: Column(
           children: [

@@ -9,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 class SignUp extends StatelessWidget {
   SignUp({super.key});
   final _formKey = GlobalKey<FormState>();
+
+  ///menginisiasi kelas RoleBaseController
   final rolebaseConntroller = RoleBaseController();
 
   @override
@@ -18,11 +20,16 @@ class SignUp extends StatelessWidget {
     String? phone;
     String? password;
 
+    ///variabek untuk validasi repass
     final _passwordController = TextEditingController();
 
     return Scaffold(
         backgroundColor: Colors.white,
+
+        ///widget agak halaman bisa di scroll
         body: SingleChildScrollView(
+
+            ///membuat tampilan form
             child: Form(
                 key: _formKey,
                 child: Stack(children: [
@@ -66,6 +73,8 @@ class SignUp extends StatelessWidget {
                                 offset: Offset(1, 1),
                                 color: Colors.grey.withOpacity(0.2))
                           ]),
+
+                      ///field untuk mengisi name
                       child: TextFormField(
                         decoration: InputDecoration(
                             hintText: "Enter your name",
@@ -80,12 +89,16 @@ class SignUp extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(30),
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 1.0))),
+
+                        ///memvalidasi isian user dan menampikan pesan apabila isian kosong
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Please enter your name";
                           }
                           return null;
                         },
+
+                        ///menyimpan sementara data
                         onChanged: (value) {
                           namaPawrent = value;
                         },
@@ -104,6 +117,8 @@ class SignUp extends StatelessWidget {
                                 offset: Offset(1, 1),
                                 color: Colors.grey.withOpacity(0.2))
                           ]),
+
+                      ///membuat field untuk email
                       child: TextFormField(
                         decoration: InputDecoration(
                             hintText: "Enter your email",
@@ -118,12 +133,16 @@ class SignUp extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(30),
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 1.0))),
+
+                        ///memeriksa dan memberikan pesan jika field kosong
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Please enter your email";
                           }
                           return null;
                         },
+
+                        ///menyimpan data sementara
                         onChanged: (value) {
                           email = value;
                         },
@@ -142,6 +161,8 @@ class SignUp extends StatelessWidget {
                                 offset: Offset(1, 1),
                                 color: Colors.grey.withOpacity(0.2))
                           ]),
+
+                      ///field untuk password
                       child: TextFormField(
                         controller: _passwordController,
                         obscureText: true,
@@ -158,14 +179,20 @@ class SignUp extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(30),
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 1.0))),
+
+                        ///memeriksan dan memberikan pesan jika field kosong
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Please enter your password";
+
+                            ///pesan jika ppass kurang dari 6 karakter
                           } else if (value.length < 6) {
                             return "Password must be at least 6 characters long";
                           }
                           return null;
                         },
+
+                        ///menyimpan data sementara
                         onChanged: (value) {
                           password = value;
                         },
@@ -184,6 +211,8 @@ class SignUp extends StatelessWidget {
                                 offset: Offset(1, 1),
                                 color: Colors.grey.withOpacity(0.2))
                           ]),
+
+                      ///field untuk confirm pass
                       child: TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
@@ -199,9 +228,14 @@ class SignUp extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(30),
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 1.0))),
+
+                        ///memriksan isian
                         validator: (value) {
+                          ///output jika isian dikosongkan
                           if (value == null || value.isEmpty) {
                             return "Please enter the same password";
+
+                            ///output jika isian tidak sama dengan field sebelumnya
                           } else if (value != _passwordController.text) {
                             return "Password must be the same";
                           }
@@ -216,6 +250,7 @@ class SignUp extends StatelessWidget {
                           const EdgeInsets.only(top: 540, left: 40, right: 40),
                       child: ElevatedButton(
                           onPressed: () async {
+                            ///mengecek isian dari pengguna
                             if (_formKey.currentState!.validate()) {
                               UserModel? registerUser =
                                   await rolebaseConntroller
@@ -224,6 +259,8 @@ class SignUp extends StatelessWidget {
                                 namaPawrent!,
                                 password!,
                               );
+
+                              ///jika data sesuai, makan akan diarahkan ke halaman signin
                               if (registerUser != null) {
                                 showDialog(
                                   context: context,
@@ -258,6 +295,8 @@ class SignUp extends StatelessWidget {
                                     );
                                   },
                                 );
+
+                                ///jika isian data tidak sesuai, maka akan menampilkan pesan error
                               } else {
                                 showDialog(
                                     context: context,
@@ -295,6 +334,8 @@ class SignUp extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+
+                          ///mengubah style elevated button
                           style: ElevatedButton.styleFrom(
                               backgroundColor:
                                   Color.fromARGB(230, 252, 87, 158),
@@ -324,6 +365,7 @@ class SignUp extends StatelessWidget {
                                     fontWeight: FontWeight.w900),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
+                                    ///jika penggguna sudah mempunyai akun, maka akan diarahkan ke SignIn
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
